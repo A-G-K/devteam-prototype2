@@ -12,17 +12,19 @@ public class ServiceLocator
 
     private ServiceLocator()
     {
-        Register(new MarketManager());
-        Register(new PlayersManager());
-        Register(new PipletManager());
-        Register(new SaveManager());
-        Register(new PlantsManager());
-        Register(new WildPlantManager());        
+        // Register(new MarketManager());
+        // Register(new PlayersManager());
+        // Register(new PipletManager());
+        // Register(new SaveManager());
+        // Register(new PlantsManager());
+        // Register(new WildPlantManager());        
         
-        // Save managers
-        Register(new PlantSaveManager());
-        Register(new TreeSaveManager());
-        Register(new DateSaveManager());
+        // // Save managers
+        // Register(new PlantSaveManager());
+        // Register(new TreeSaveManager());
+        // Register(new DateSaveManager());
+
+        
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

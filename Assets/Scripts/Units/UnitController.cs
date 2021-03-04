@@ -66,17 +66,20 @@ public class UnitController : MonoBehaviour
 
         int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
-        if (distance <= selectedUnit.CurrentActionPoints)
+        if (distance <= selectedUnit.CurrentMovementPoints)
         {
             // TODO Maybe we want some cool coroutine or animation here later
             Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
             selectedUnit.transform.position = finalPos;
             
+            
+            selectedUnit.CurrentMovementPoints -= distance;
+
             Debug.Log($"Move to final pos {finalPos}");
         }
         else
         {
-            Debug.Log($"Can't move unit, lacking {distance - selectedUnit.CurrentActionPoints} action points");
+            Debug.Log($"Can't move unit, lacking {distance - selectedUnit.CurrentMovementPoints} movement points");
         }
         
         // Unselect the unit at the end

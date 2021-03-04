@@ -3,18 +3,23 @@ using UnityEngine;
 
 
 public class Unit : MonoBehaviour
-{
-    public int actionPoints;
+{   
 
-    public int CurrentActionPoints { get; set; }
+    public UnitData unitData;
+    private int movementPoints;
+
+    public int CurrentMovementPoints { get; set; }
+
+    public Transform trans;
 
     private void Awake()
     {
-        CurrentActionPoints = actionPoints;
+        CurrentMovementPoints = unitData.movement_points;
+
     }
 
     public void NextTurn()
     {
-        CurrentActionPoints = actionPoints;
+        CurrentMovementPoints = unitData.movement_points;
     }
 }
