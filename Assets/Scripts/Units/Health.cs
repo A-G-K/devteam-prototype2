@@ -5,16 +5,17 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 1;
-    [SerializeField] private int maxHealth = 1;
+
+    private int maxHealth;
+    public int MaxHealth {get; set;}
     public UnityEvent onDeath;
 
     public int CurrentHealth { get; private set; }
-    public bool IsDead => health == 0;
+    public bool IsDead => CurrentHealth == 0;
 
-    private void Awake()
+    private void Start()
     {
-        CurrentHealth = health;
+        CurrentHealth = MaxHealth;
     }
 
     public void TakeDamage(int amount)
