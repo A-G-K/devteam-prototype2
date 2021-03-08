@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b807d97637559c64faf6654a2b77aac6, type: 3}
-  m_Name: Fire
+  m_Name: Water
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 8625592505897665864, guid: 44e84488212491047926adc0141f69ac, type: 3}
   weakAgainstElements:
-  - {fileID: 11400000, guid: 8642fe209dbd721498074a08dd088620, type: 2}
-  strongAgainstElements: []
+  - {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
+  strongAgainstElements:
+  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}

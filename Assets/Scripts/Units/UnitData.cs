@@ -23,9 +23,11 @@ public class UnitData : ScriptableObject
     
     public int unit_MaxHealth;
 
+    public Element elementType;
+
+    public List<AbilityStats> abilitiesList;
 
 
-  
 
 
 

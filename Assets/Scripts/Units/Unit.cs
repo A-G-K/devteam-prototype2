@@ -25,7 +25,7 @@ public class Unit : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private elementType elementType;
+    private Element elementType;
 
     private void Awake()
     {   
@@ -35,14 +35,25 @@ public class Unit : MonoBehaviour
 
         CurrentMovementPoints = playerData.unit_MovementPoints;
         spriteRenderer.color = playerData.unit_Colour;
-        elementType = playerData.elemental_Type;
+        elementType = playerData.elementType;
         heathData.MaxHealth = playerData.unit_MaxHealth;
         Debug.Log($"{playerData.unit_name} spawned!");
-
+        
+        ResetTokens();
     }
 
     public void NextTurn()
     {
         CurrentMovementPoints = playerData.unit_MovementPoints;
+        ResetTokens();
+    }
+
+    public void ResetTokens()
+    {
+        playerData.currentTokens.Clear();
+        for (int i = 0; i < playerData.unit_StartElementalToken; i++)
+        {
+            playerData.currentTokens.Add(playerData.elementType);
+        }
     }
 }

@@ -13,12 +13,20 @@ public class DamageAbility : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image abilityImage;
     [SerializeField] private GameObject tokensHolder;
+    [SerializeField] [HideInInspector] private CanvasGroup _canvasGroup;
 
     private bool isUsable = true;
     // Start is called before the first frame update
     void Start()
     {
-        
+    }
+
+    public void OnClick()
+    {
+        if (isUsable)
+        {
+            ActivateAbility();
+        }
     }
 
     public void ActivateAbility()
@@ -32,7 +40,10 @@ public class DamageAbility : MonoBehaviour
     {
         List<GameObject> targets = new List<GameObject> {target};
 
-        
+        if (isUsable)
+        {
+            
+        }
         // // calculate range between user and target
         // if (target.pos - user.pos < _abilityStats.range)
         // {
@@ -70,7 +81,8 @@ public class DamageAbility : MonoBehaviour
             tokenSprites[i].sprite = _abilityStats.elementalCost[i].icon;
         }
         
-        // Check if selected unit has enough tokens, if so set isuable to true else false.
+        // Check if selected unit has enough tokens, if so set isUsable to true else false.
+        _canvasGroup.alpha = isUsable ? 1f : 0.7f;
     }
 
     private void OnDisable()
@@ -80,5 +92,10 @@ public class DamageAbility : MonoBehaviour
         {
             tokenSprites[i].gameObject.SetActive(false);
         }
+    }
+
+    private void OnValidate()
+    {
+        _canvasGroup = GetComponent<CanvasGroup>();
     }
 }

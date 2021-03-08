@@ -4,7 +4,7 @@ namespace Services
 {
     public class AbilityUIManager : IGameService
     {
-        public GameObject SelectedUnit;
+        public Unit SelectedUnit;
 
         public AbilityUIController abilityUIController;
         

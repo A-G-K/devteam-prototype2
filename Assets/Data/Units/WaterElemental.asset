@@ -10,15 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f2e55c2806333d4681939180d25a907, type: 3}
-  m_Name: EarthElemental
+  m_Name: WaterElemental
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1469175425764594775, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
-  unit_name: Earth Elemental
+  prefab: {fileID: 2007013844664509026, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+  unit_name: Water Elemental
   unit_Sprite: {fileID: 7482667652216324306, guid: f8545e5a0da6b26479be460ab8ac314a, type: 3}
   unit_Colour:
     serializedVersion: 2
-    rgba: 4278231039
-  unit_MaxHealth: 75
-  elemental_Type: 3
+    rgba: 4294964480
+  unit_MaxHealth: 60
+  elementType: {fileID: 11400000, guid: 8642fe209dbd721498074a08dd088620, type: 2}
   unit_MovementPoints: 3
-  unit_StartElementalToken: 2
+  unit_StartElementalToken: 4
+  currentTokens:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

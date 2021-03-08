@@ -1,13 +1,25 @@
 using System;
+using RoboRyanTron.Unite2017.Events;
+using Services;
 using UnityEngine;
 
 
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private Grid grid;
+
+    [SerializeField] private GameEvent selectUnitEvent;
+    [SerializeField] private GameEvent deselectUnitEvent;
     
     private Unit selectedUnit;
-    
+
+    private AbilityUIManager _abilityUIManager;
+
+    private void Start()
+    {
+        _abilityUIManager = ServiceLocator.Current.Get<AbilityUIManager>();
+    }
+
     private void Update()
     {
         HandleClick();
@@ -45,6 +57,8 @@ public class UnitController : MonoBehaviour
             
             // Here we select a unit
             selectedUnit = unit;
+            _abilityUIManager.SelectedUnit = unit;
+            selectUnitEvent.Raise();
         }
         else
         {
@@ -52,6 +66,8 @@ public class UnitController : MonoBehaviour
             
             // Here we un-select a unit
             selectedUnit = null;
+            _abilityUIManager.SelectedUnit = null;
+            deselectUnitEvent.Raise();
         }
     }
 

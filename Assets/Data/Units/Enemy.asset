@@ -9,16 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2e55c2806333d4681939180d25a907, type: 3}
-  m_Name: FireElemental
+  m_Script: {fileID: 11500000, guid: e820b17bddd4473498b688c5a5d57e8e, type: 3}
+  m_Name: Enemy
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2422165352394204651, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
-  unit_name: Fire Elemental
+  prefab: {fileID: 0}
+  unit_name: Enemy Unit
   unit_Sprite: {fileID: 7482667652216324306, guid: f8545e5a0da6b26479be460ab8ac314a, type: 3}
   unit_Colour:
     serializedVersion: 2
-    rgba: 4278190335
-  unit_MaxHealth: 50
-  elemental_Type: 2
-  unit_MovementPoints: 3
-  unit_StartElementalToken: 4
+    rgba: 4278255538
+  unit_MaxHealth: 60
+  elementType: {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  EnemyDamage: 50

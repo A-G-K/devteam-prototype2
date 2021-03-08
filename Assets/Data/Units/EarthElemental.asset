@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f2e55c2806333d4681939180d25a907, type: 3}
-  m_Name: AirElemental
+  m_Name: EarthElemental
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1633197587689853318, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
-  unit_name: Air Elemental
+  prefab: {fileID: 1469175425764594775, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+  unit_name: Earth Elemental
   unit_Sprite: {fileID: 7482667652216324306, guid: f8545e5a0da6b26479be460ab8ac314a, type: 3}
   unit_Colour:
     serializedVersion: 2
-    rgba: 4294967295
-  unit_MaxHealth: 40
-  elemental_Type: 0
-  unit_MovementPoints: 5
-  unit_StartElementalToken: 3
+    rgba: 4278231039
+  unit_MaxHealth: 75
+  elementType: {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
+  unit_MovementPoints: 3
+  unit_StartElementalToken: 2
+  currentTokens:
+  - {fileID: 0}
+  - {fileID: 0}

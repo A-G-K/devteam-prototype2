@@ -9,11 +9,9 @@ public class PlayerData : UnitData
 {
     
     [Header("Player Unit Information")]
-    public elementType elemental_Type;
-    
     public int unit_MovementPoints;
 
     public int unit_StartElementalToken;
 
-
+    public List<Element> currentTokens;
 }
