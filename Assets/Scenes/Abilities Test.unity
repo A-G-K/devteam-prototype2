@@ -252,7 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffeae7599b2ea3141a55b9f4f7809c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityCardsHolder: {fileID: 0}
 --- !u!1 &450870699
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +266,6 @@ GameObject:
   - component: {fileID: 450870701}
   - component: {fileID: 450870704}
   - component: {fileID: 450870706}
-  - component: {fileID: 450870705}
   m_Layer: 5
   m_Name: UnitSelectedMenu
   m_TagString: Untagged
@@ -372,7 +370,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 450870705}
+      - m_Target: {fileID: 379345082}
         m_TargetAssemblyTypeName: Services.AbilityUIController, Assembly-CSharp
         m_MethodName: OnPlayerUnitSelect
         m_Mode: 1
@@ -382,21 +380,8 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &450870705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 450870699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffeae7599b2ea3141a55b9f4f7809c98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityCardsHolder: {fileID: 379345079}
 --- !u!114 &450870706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,10 +398,22 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 450870705}
+      - m_Target: {fileID: 379345082}
         m_TargetAssemblyTypeName: Services.AbilityUIController, Assembly-CSharp
         m_MethodName: OnPlayerUnitDeselect
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 379345079}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -637,8 +634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 116102340}
-  selectUnitEvent: {fileID: 0}
-  deselectUnitEvent: {fileID: 0}
+  selectUnitEvent: {fileID: 11400000, guid: f33ee4753b69fce4f9a25dcab3d52301, type: 2}
+  deselectUnitEvent: {fileID: 11400000, guid: 2419691424e2865478b478267760b336, type: 2}
 --- !u!4 &1027455274
 Transform:
   m_ObjectHideFlags: 0
