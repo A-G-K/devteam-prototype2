@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 7df9d3f427b84e842aa865ddef8aa2f1, type: 2}
+  newPlayer: {fileID: 11400000, guid: 4c93b1fdd5beead40b795bdff203f691, type: 2}
   trans: {fileID: 0}
 --- !u!114 &891421642442062134
 MonoBehaviour:
@@ -60,8 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2124fb24375040a2bcf54df6413b1242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  maxHealth: 1
   onDeath:
     m_PersistentCalls:
       m_Calls: []

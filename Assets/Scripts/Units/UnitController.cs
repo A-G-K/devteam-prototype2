@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RoboRyanTron.Unite2017.Events;
 using Services;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class UnitController : MonoBehaviour
     private AbilityUIManager _abilityUIManager;
 
     public Grid Grid => grid;
+
+    public List<Unit> allPlayerUnits = new List<Unit>();
     public Unit SelectedUnit => selectedUnit;
     public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
 
@@ -26,6 +29,15 @@ public class UnitController : MonoBehaviour
     private void Start()
     {
         _abilityUIManager = ServiceLocator.Current.Get<AbilityUIManager>();
+        GameObject[] tempUnits;
+        tempUnits = GameObject.FindGameObjectsWithTag("Unit");
+
+        foreach (GameObject unit in tempUnits) 
+        {
+           
+            allPlayerUnits.Add(unit.gameObject.GetComponent<Unit>());
+        }
+        Debug.Log(allPlayerUnits.Count);
     }
 
     private void Update()

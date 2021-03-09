@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using RoboRyanTron.Unite2017.Events;
 
 public enum elementType 
 {
@@ -15,6 +16,8 @@ public class Unit : MonoBehaviour
 {   
 
     public PlayerData playerData;
+
+    [SerializeField] private GameEvent newPlayer;
 
     private Health heathData;
     private int movementPoints;
@@ -32,6 +35,8 @@ public class Unit : MonoBehaviour
         heathData = this.GetComponent<Health>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
+        newPlayer.Raise();
+    
 
         CurrentMovementPoints = playerData.unit_MovementPoints;
         spriteRenderer.color = playerData.unit_Colour;
@@ -50,6 +55,7 @@ public class Unit : MonoBehaviour
 
     public void ResetTokens()
     {
+        
         playerData.currentTokens.Clear();
         for (int i = 0; i < playerData.unit_StartElementalToken; i++)
         {
