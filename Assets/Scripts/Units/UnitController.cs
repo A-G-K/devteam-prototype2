@@ -1,12 +1,24 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private Grid grid;
+
+    [SerializeField] private GameObject pfbHighlight;
+
+
+    public BoundsInt area;
+
+    [SerializeField] private Tilemap tilemap;
     
     private Unit selectedUnit;
+
+    
     
     private void Update()
     {
@@ -39,12 +51,15 @@ public class UnitController : MonoBehaviour
 
     private void ClickUnit(Unit unit)
     {
+
+
         if (selectedUnit == null)
         {
             Debug.Log($"Selected {unit}");
             
             // Here we select a unit
             selectedUnit = unit;
+            DisplayRange();
         }
         else
         {
@@ -85,4 +100,34 @@ public class UnitController : MonoBehaviour
         // Unselect the unit at the end
         selectedUnit = null;
     }
+
+
+    void DisplayRange() 
+    {   
+       
+        //     Debug.Log("tes2t");
+
+        // foreach (var position in tilemap.cellBounds.allPositionsWithin) {
+        //     Debug.Log("test");
+        //     if (!tilemap.HasTile(position)) {
+        //         continue;
+        //     }
+
+             
+        // Vector2Int targetCellPos = (Vector2Int) grid.WorldToCell(position);
+        // Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
+
+        // int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
+        //     if (distance <= selectedUnit.CurrentMovementPoints) 
+        //     {
+        //         Instantiate(pfbHighlight,position,Quaternion.identity);
+        //     }
+        // }
+    }
+
+   
+
+
+    
+  
 }
