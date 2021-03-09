@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Services;
 using UnityEngine;
 
 public interface IGameService { }
@@ -12,7 +13,7 @@ public class ServiceLocator
 
     private ServiceLocator()
     {
-        
+        Register(new AbilityUIManager());
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

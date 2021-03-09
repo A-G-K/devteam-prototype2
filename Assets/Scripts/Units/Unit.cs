@@ -1,20 +1,59 @@
 using System;
 using UnityEngine;
 
-
-public class Unit : MonoBehaviour
+public enum elementType 
 {
-    public int actionPoints;
+    Air,
+    Water,
+    Fire,
 
-    public int CurrentActionPoints { get; set; }
+    Earth
+
+
+}
+public class Unit : MonoBehaviour
+{   
+
+    public PlayerData playerData;
+
+    private Health heathData;
+    private int movementPoints;
+
+    public int CurrentMovementPoints { get;  set; }
+
+    public Transform trans;
+
+    private SpriteRenderer spriteRenderer;
+
+    private Element elementType;
 
     private void Awake()
-    {
-        CurrentActionPoints = actionPoints;
+    {   
+        heathData = this.GetComponent<Health>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+
+        CurrentMovementPoints = playerData.unit_MovementPoints;
+        spriteRenderer.color = playerData.unit_Colour;
+        elementType = playerData.elementType;
+        heathData.MaxHealth = playerData.unit_MaxHealth;
+        Debug.Log($"{playerData.unit_name} spawned!");
+        
+        ResetTokens();
     }
 
     public void NextTurn()
     {
-        CurrentActionPoints = actionPoints;
+        CurrentMovementPoints = playerData.unit_MovementPoints;
+        ResetTokens();
+    }
+
+    public void ResetTokens()
+    {
+        playerData.currentTokens.Clear();
+        for (int i = 0; i < playerData.unit_StartElementalToken; i++)
+        {
+            playerData.currentTokens.Add(playerData.elementType);
+        }
     }
 }

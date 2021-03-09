@@ -1,13 +1,25 @@
 using System;
+using RoboRyanTron.Unite2017.Events;
+using Services;
 using UnityEngine;
 
 
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private Grid grid;
+
+    [SerializeField] private GameEvent selectUnitEvent;
+    [SerializeField] private GameEvent deselectUnitEvent;
     
     private Unit selectedUnit;
-    
+
+    private AbilityUIManager _abilityUIManager;
+
+    private void Start()
+    {
+        _abilityUIManager = ServiceLocator.Current.Get<AbilityUIManager>();
+    }
+
     private void Update()
     {
         HandleClick();
@@ -45,6 +57,8 @@ public class UnitController : MonoBehaviour
             
             // Here we select a unit
             selectedUnit = unit;
+            _abilityUIManager.SelectedUnit = unit;
+            selectUnitEvent.Raise();
         }
         else
         {
@@ -52,6 +66,8 @@ public class UnitController : MonoBehaviour
             
             // Here we un-select a unit
             selectedUnit = null;
+            _abilityUIManager.SelectedUnit = null;
+            deselectUnitEvent.Raise();
         }
     }
 
@@ -66,17 +82,20 @@ public class UnitController : MonoBehaviour
 
         int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
-        if (distance <= selectedUnit.CurrentActionPoints)
+        if (distance <= selectedUnit.CurrentMovementPoints)
         {
             // TODO Maybe we want some cool coroutine or animation here later
             Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
             selectedUnit.transform.position = finalPos;
             
+            
+            selectedUnit.CurrentMovementPoints -= distance;
+
             Debug.Log($"Move to final pos {finalPos}");
         }
         else
         {
-            Debug.Log($"Can't move unit, lacking {distance - selectedUnit.CurrentActionPoints} action points");
+            Debug.Log($"Can't move unit, lacking {distance - selectedUnit.CurrentMovementPoints} movement points");
         }
         
         // Unselect the unit at the end
