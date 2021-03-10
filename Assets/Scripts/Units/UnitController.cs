@@ -13,7 +13,6 @@ public class UnitController : MonoBehaviour
     [SerializeField] private GameEvent deselectUnitEvent;
     
     private Unit selectedUnit;
-    private AbilityUIManager _abilityUIManager;
 
     public Grid Grid => grid;
 
@@ -29,7 +28,6 @@ public class UnitController : MonoBehaviour
 
     private void Start()
     {
-        _abilityUIManager = ServiceLocator.Current.Get<AbilityUIManager>();
         GameObject[] tempUnits;
         tempUnits = GameObject.FindGameObjectsWithTag("Unit");
 
@@ -87,7 +85,6 @@ public class UnitController : MonoBehaviour
         Debug.Log($"Selected {unit}");
         
         selectedUnit = unit;
-        _abilityUIManager.SelectedUnit = unit;
         selectUnitEvent.Raise();
     }
 
@@ -98,7 +95,6 @@ public class UnitController : MonoBehaviour
         if (selectedUnit != null)
         {
             selectedUnit = null;
-            _abilityUIManager.SelectedUnit = null;
             deselectUnitEvent.Raise();
         }
     }
