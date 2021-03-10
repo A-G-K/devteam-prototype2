@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 842908820}
   m_Layer: 0
   m_Name: VisualTilemap
-  m_TagString: Untagged
+  m_TagString: ValidCell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2004,6 +2004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   validCellSprite: {fileID: 7482667652216324306, guid: f8545e5a0da6b26479be460ab8ac314a, type: 3}
   selectedCellSprite: {fileID: 7482667652216324306, guid: f8545e5a0da6b26479be460ab8ac314a, type: 3}
+  abilityCellSprite: {fileID: 7323847926860770086, guid: c95da15af15a0bf468a04ca8a4434118, type: 3}
   tilemap: {fileID: 842908819}
 --- !u!114 &1644428552
 MonoBehaviour:
@@ -2072,6 +2073,9 @@ GameObject:
   - component: {fileID: 1740483561}
   - component: {fileID: 1740483560}
   - component: {fileID: 1740483562}
+  - component: {fileID: 1740483563}
+  - component: {fileID: 1740483564}
+  - component: {fileID: 1740483565}
   m_Layer: 0
   m_Name: TurnBaseManager
   m_TagString: Untagged
@@ -2128,6 +2132,89 @@ MonoBehaviour:
       - m_Target: {fileID: 1740483560}
         m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
         m_MethodName: ChangeTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1740483563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740483559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ef90143b9874f43a21ddef4d6a2b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedAbility: {fileID: 11400000, guid: bd68adac84e1fe5479e4350640a0f38f, type: 2}
+  curSelectedAbility: {fileID: 0}
+  isAbilitySelected: 0
+--- !u!114 &1740483564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740483559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: bd68adac84e1fe5479e4350640a0f38f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1740483563}
+        m_TargetAssemblyTypeName: AbilityController, Assembly-CSharp
+        m_MethodName: showAbilityRange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1740483563}
+        m_TargetAssemblyTypeName: AbilityController, Assembly-CSharp
+        m_MethodName: abilitySelcted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1740483565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740483559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2419691424e2865478b478267760b336, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1740483563}
+        m_TargetAssemblyTypeName: AbilityController, Assembly-CSharp
+        m_MethodName: OnUnitDeselected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

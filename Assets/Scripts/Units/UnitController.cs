@@ -21,9 +21,12 @@ public class UnitController : MonoBehaviour
     public int ActionCountPerTurn => actionCountPerTurn;
     public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
 
+    private AbilityController abilityController;
+
     private void Awake()
     {
         ServiceLocator.Current.Get<UnitManager>().Controller = this;
+
     }
 
     private void Start()
@@ -36,7 +39,9 @@ public class UnitController : MonoBehaviour
            
             allPlayerUnits.Add(unit.gameObject.GetComponent<Unit>());
         }
-        Debug.Log(allPlayerUnits.Count);
+
+                abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
+
     }
 
     private void Update()
@@ -48,10 +53,19 @@ public class UnitController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 
-            if (hitCollider != null && hitCollider.CompareTag("Unit"))
+
+            if (abilityController.isAbilitySelected) // &&hitCollider.CompareTag("Enemy")
+            {       
+
+                 AttackSelectedUnit(mousePosition); //  TO ATTACK THE UNIT || change mouse position to the enemy unit that is going to be damaged
+            }
+
+
+            if (hitCollider != null && hitCollider.CompareTag("Unit") )
             {
                 Unit hitUnit = hitCollider.GetComponent<Unit>();
 
@@ -65,6 +79,11 @@ public class UnitController : MonoBehaviour
                 // Here we have clicked on an empty space
                 MoveSelectedUnitTo(mousePosition);
             }
+        }
+
+        if (Input.GetButtonDown("Escape") && selectedUnit != null) 
+        {
+            DeselectSelectedUnit();
         }
     }
 
@@ -102,6 +121,11 @@ public class UnitController : MonoBehaviour
     private void MoveSelectedUnitTo(Vector2 targetPos)
     {
         if (selectedUnit == null) return;
+
+        if (!abilityController.isAbilitySelected)
+        {
+
+        
         
         Debug.Log($"Move {selectedUnit} towards {targetPos}");
 
@@ -126,6 +150,64 @@ public class UnitController : MonoBehaviour
         }
         
         // Unselect the unit at the end
-        DeselectSelectedUnit();
+         DeselectSelectedUnit();
+
+        }
     }
+
+      private void AttackSelectedUnit(Vector2 targetPos) // SET THE NEW PARAMETER FOR THIS METHOD TO BE THE ENEMY UNIT
+    {
+        Debug.Log("firstest");
+
+        if (selectedUnit == null) return;
+
+               Vector2Int targetCellPos = (Vector2Int) grid.WorldToCell(targetPos);
+        Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
+
+                 int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
+
+
+        if (abilityController.isAbilitySelected)
+        {
+
+            Debug.Log("second");
+
+
+            if ( distance <= abilityController.curSelectedAbility.range) 
+            {
+
+            } else 
+            {
+                Debug.Log("eeEASDASD");
+                DeselectSelectedUnit();
+            }
+    //     {
+
+     
+        
+
+ 
+
+    //     int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
+
+    //     if ( distance <= abilityController.curSelectedAbility.range) 
+    //     {
+    //         // TODO Maybe we want some cool coroutine or animation here later
+    //         Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
+    //         selectedUnit.transform.position = finalPos;
+    //         selectedUnit.CurrentMovementPoints -= distance;
+    //         selectedUnit.ActionCount--;
+
+    //         Debug.Log($"Move to final pos {finalPos}");
+    //     }
+    //     else
+    //     {
+    //         Debug.Log($"Can't move unit, lacking {distance - selectedUnit.CurrentMovementPoints} movement points");
+    //     }
+        
+    //     // Unselect the unit at the end
+    //      DeselectSelectedUnit();
+
+         }
+     }
 }

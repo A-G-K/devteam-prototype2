@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Unit
+  - AbilityCard
+  - ValidCell
   layers:
   - Default
   - TransparentFX

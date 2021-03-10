@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Services;
+using RoboRyanTron.Unite2017.Events;
 
 public class DamageAbility : MonoBehaviour
 {
@@ -14,26 +16,45 @@ public class DamageAbility : MonoBehaviour
     [SerializeField] private Image abilityImage;
     [SerializeField] private GameObject tokensHolder;
     [SerializeField] [HideInInspector] private CanvasGroup _canvasGroup;
+ 
+
+
+
+    
 
     private bool isUsable = true;
     // Start is called before the first frame update
     void Start()
     {
+
+
     }
 
-    public void OnClick()
+    public void OnUnitSelect()
     {
+
+
+       
+
+
         if (isUsable)
         {
             ActivateAbility();
         }
     }
 
+
     public void ActivateAbility()
     {
+        Debug.Log($"Card Clicked");
         // Show range
         // Process Ability on clicking valid target
         // disable card
+    }
+
+    void Update() 
+    {
+       
     }
     
     public void ProcessAbility(GameObject user, GameObject target)
@@ -97,5 +118,10 @@ public class DamageAbility : MonoBehaviour
     private void OnValidate()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    public AbilityStats GetAbilityStats() 
+    {
+        return _abilityStats;
     }
 }

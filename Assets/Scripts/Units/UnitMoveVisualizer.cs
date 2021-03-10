@@ -10,6 +10,9 @@ public class UnitMoveVisualizer : MonoBehaviour
 {
     [SerializeField] private Sprite validCellSprite;
     [SerializeField] private Sprite selectedCellSprite;
+
+    [SerializeField] private Sprite abilityCellSprite;
+
     [SerializeField] private Tilemap tilemap;
 
     private Grid grid;
@@ -17,16 +20,33 @@ public class UnitMoveVisualizer : MonoBehaviour
     private Tile validTile;
     private Tile selectedTile;
 
+    private Tile validAbilityCell;
+
+    private AbilityController abilityController;
+
+    private UnitManager unitManager;
+
+
+    private void Awake()
+    {
+        ServiceLocator.Current.Get<UnitManager>().Visualizer = this;
+
+    }
     private void Start()
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         grid = unitController.Grid;
+
+        abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
 
         validTile = ScriptableObject.CreateInstance<Tile>();
         validTile.sprite = validCellSprite;
 
         selectedTile = ScriptableObject.CreateInstance<Tile>();
         selectedTile.sprite = selectedCellSprite;
+
+          validAbilityCell = ScriptableObject.CreateInstance<Tile>();
+          validAbilityCell.sprite = abilityCellSprite;
     }
 
     public void OnUnitSelected()
@@ -35,7 +55,7 @@ public class UnitMoveVisualizer : MonoBehaviour
 
         if (unitController.SelectedUnit.CanMove)
         {
-            HighlightValidTiles();
+            HighlightValidTiles(unitController.SelectedUnit.CurrentMovementPoints, validTile);
         }
     }
 
@@ -43,13 +63,23 @@ public class UnitMoveVisualizer : MonoBehaviour
     {
         tilemap.ClearAllTiles();
     }
+
+    public void HighlightAbilityRange(int range) 
+    {
+        tilemap.ClearAllTiles();
+        HighlightValidTiles(range, validAbilityCell);
+    } 
+
+
     
-    private void HighlightValidTiles()
+    private void HighlightValidTiles(int range, Tile tileType)
     {
         foreach (Vector2Int cell in 
-            Vector2IntUtils.GetNearbyCells(unitController.SelectedUnitCell, unitController.SelectedUnit.CurrentMovementPoints))
+            // Vector2IntUtils.GetNearbyCells(unitController.SelectedUnitCell, unitController.SelectedUnit.CurrentMovementPoints))
+            Vector2IntUtils.GetNearbyCells(unitController.SelectedUnitCell, range))
+
         {
-            tilemap.SetTile((Vector3Int) cell, validTile);
+            tilemap.SetTile((Vector3Int) cell, tileType);
         }
     }
 }

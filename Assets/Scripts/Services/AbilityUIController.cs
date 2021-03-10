@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Services
 {
@@ -8,6 +9,10 @@ namespace Services
         private AbilityUIManager _abilityUIManager;
         private UnitManager _unitManager;
         private PlayerData _selectedUnitData;
+
+
+
+        private List<int> _abilityKeyCode = new List<int>();
 
         private void Awake()
         {
@@ -41,11 +46,14 @@ namespace Services
         }
 
         private void SetAbilities()
-        {
+        {   
             foreach (var ability in _selectedUnitData.abilitiesList)
             {
                 Instantiate(ability.abilityPrefab, transform);
             }
+
+
+
         }
         
         private void ClearAbilities()

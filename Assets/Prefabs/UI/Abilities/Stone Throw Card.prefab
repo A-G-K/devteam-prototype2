@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 1737395156445223662}
   m_Layer: 5
   m_Name: Stone Throw Card
-  m_TagString: Untagged
+  m_TagString: AbilityCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

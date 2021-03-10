@@ -14,9 +14,14 @@ public class AbilityStats : ScriptableObject
     public Element element;
     public Sprite icon;
 
+
+
     [Header("Stats")]
     public int damage; // Negative damage = healing
     public int range = 1;
     public int radius = 1;
+
+
     public List<Element> elementalCost;
+
 }
