@@ -14,25 +14,27 @@ public static class Vector2IntUtils
 
     public static IEnumerable<Vector2Int> GetNearbyCells(Vector2Int selectedCell, int limit)
     {
-        var result = new List<Vector2Int>();
         Queue<Vector2Int> queue = new Queue<Vector2Int>();
+        HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
         queue.Enqueue(selectedCell);
+        visited.Add(selectedCell);
 
         while (queue.Count != 0)
         {
             Vector2Int current = queue.Dequeue();
+            visited.Add(current);
             
             foreach (Vector2Int neighbourCell in current.GetNeighbouring())
             {
-                if (ManhattanDistance(selectedCell, neighbourCell) <= limit)
+                if (!visited.Contains(neighbourCell) && ManhattanDistance(selectedCell, neighbourCell) <= limit)
                 {
-                    result.Add(neighbourCell);
                     queue.Enqueue(neighbourCell);
                 }
             }
         }
 
-        return result;
+        visited.Remove(selectedCell);
+        return visited;
     }
 }
 

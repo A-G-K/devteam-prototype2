@@ -73,18 +73,29 @@ public class UnitController : MonoBehaviour
     {
         if (selectedUnit == null)
         {
-            Debug.Log($"Selected {unit}");
-            
-            // Here we select a unit
-            selectedUnit = unit;
-            _abilityUIManager.SelectedUnit = unit;
-            selectUnitEvent.Raise();
+            SelectUnit(unit);
         }
         else
         {
-            Debug.Log($"Unselected {selectedUnit}");
-            
-            // Here we un-select a unit
+            DeselectSelectedUnit();
+        }
+    }
+
+    private void SelectUnit(Unit unit)
+    {
+        Debug.Log($"Selected {unit}");
+        
+        selectedUnit = unit;
+        _abilityUIManager.SelectedUnit = unit;
+        selectUnitEvent.Raise();
+    }
+
+    private void DeselectSelectedUnit()
+    {
+        Debug.Log($"Unselected {selectedUnit}");
+        
+        if (selectedUnit != null)
+        {
             selectedUnit = null;
             _abilityUIManager.SelectedUnit = null;
             deselectUnitEvent.Raise();
@@ -119,6 +130,6 @@ public class UnitController : MonoBehaviour
         }
         
         // Unselect the unit at the end
-        selectedUnit = null;
+        DeselectSelectedUnit();
     }
 }
