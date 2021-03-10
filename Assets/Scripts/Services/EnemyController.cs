@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -18,6 +19,14 @@ public class EnemyController : MonoBehaviour
         ServiceLocator.Current.Get<EnemyManager>().Controller = this;
     }
 
+    private void Start()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy")
+            .Select(e => e.GetComponent<IEnemy>())
+            .Where(e => e != null)
+            .ToList();
+    }
+
     /// <summary>
     /// Enemy implementations need to call this function once the enemy is done with movement to be able to continue the turns.
     /// </summary>
@@ -33,6 +42,8 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator DoEnemyTurns()
     {
+        yield return new WaitForSeconds(3f);
+        
         foreach (IEnemy enemy in Enemies)
         {
             isRunningEnemyTurn = true;
@@ -47,5 +58,7 @@ public class EnemyController : MonoBehaviour
         {
             enemy.NextTurn();
         }
+        
+        yield return new WaitForSeconds(3f);
     }
 }

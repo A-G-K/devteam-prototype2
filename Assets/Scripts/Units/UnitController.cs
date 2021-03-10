@@ -47,6 +47,30 @@ public class UnitController : MonoBehaviour
         HandleClick();
     }
 
+    /// <summary>
+    /// Get a player unit given a position in the world, returns null otherwise if no unit is found.
+    /// </summary>
+    public Unit GetUnitAt(Vector2 pos)
+    {
+        return GetUnitAt((Vector2Int) grid.WorldToCell(pos));
+    }
+
+    /// <summary>
+    /// Get a player unit given a cell, returns null otherwise if no unit is found.
+    /// </summary>
+    public Unit GetUnitAt(Vector2Int cell)
+    {
+        foreach (Unit unit in AllPlayerUnits)
+        {
+            if (unit.CurrentCell == cell)
+            {
+                return unit;
+            }
+        }
+
+        return null;
+    }
+
     private void HandleClick()
     {
         if (Input.GetButtonDown("Fire1"))

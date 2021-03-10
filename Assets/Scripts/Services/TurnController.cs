@@ -32,20 +32,34 @@ public class TurnController : MonoBehaviour
 
 
     private UnitController unitController;
+    private bool isChangingTurn;
 
-    public void EndTurnButton() => EndTurn.Raise();
-
-    
-
-    
-    void Awake() 
+    public void EndTurnButton()
     {
-            ServiceLocator.Current.Get<TurnManager>().TurnController = this;
-            CurrentTurn = Turn.Player;
-            
+        if (!isChangingTurn)
+        {
+            EndTurn.Raise();
+        }
+        else
+        {
+            StartCoroutine(WaitAndEndTurn());
+        }
     }
 
-    void Start() 
+    private IEnumerator WaitAndEndTurn()
+    {
+        yield return new WaitWhile(() => isChangingTurn);
+        yield return null;
+        EndTurn.Raise();
+    }
+
+    private void Awake() 
+    {
+        ServiceLocator.Current.Get<TurnManager>().TurnController = this;
+        CurrentTurn = Turn.Player;
+    }
+
+    private void Start() 
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         txtTurnIndicator.color = new Color32(0,255,0,255);
@@ -56,8 +70,9 @@ public class TurnController : MonoBehaviour
 
 
 
-    public void ChangeTurn() 
+    public void ChangeTurn()
     {
+        isChangingTurn = true;
 
         // UI CHANGES
         if (CurrentTurn == Turn.Player) 
@@ -93,7 +108,7 @@ public class TurnController : MonoBehaviour
         }
 
         Debug.Log($"======>TURN HAS CHANGED TO {CurrentTurn}");
-
+        isChangingTurn = false;
     }
 
     private IEnumerator DelayAndChangeTurn()
