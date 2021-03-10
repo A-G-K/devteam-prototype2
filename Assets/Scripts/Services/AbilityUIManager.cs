@@ -4,8 +4,9 @@ namespace Services
 {
     public class AbilityUIManager : IGameService
     {
-        public Unit SelectedUnit;
-
+        /*
+         * Tbh idk what I wanna do with this but it can sit here now
+         */
         public AbilityUIController abilityUIController;
         
         // Start is called before the first frame update

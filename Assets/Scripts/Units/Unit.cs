@@ -18,7 +18,7 @@ public class Unit : MonoBehaviour
 
     [SerializeField] private GameEvent newPlayer;
 
-    private Health heathData;
+    public Health heathData;
     private int movementPoints;
 
     public int CurrentMovementPoints { get;  set; }
