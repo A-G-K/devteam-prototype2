@@ -24,6 +24,7 @@ public class Unit : MonoBehaviour
     public int CurrentMovementPoints { get;  set; }
     public int ActionCount { get; set; }
     public bool CanMove => ActionCount > 0;
+    public Vector2Int CurrentCell => (Vector2Int) unitController.Grid.WorldToCell(transform.position);
 
     public Transform trans;
 

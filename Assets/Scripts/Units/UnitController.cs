@@ -21,6 +21,7 @@ public class UnitController : MonoBehaviour
     public Unit SelectedUnit => selectedUnit;
     public int ActionCountPerTurn => actionCountPerTurn;
     public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
+    public IEnumerable<Unit> AllPlayerUnits => allPlayerUnits.AsReadOnly();
 
     private void Awake()
     {
