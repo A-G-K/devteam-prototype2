@@ -12,8 +12,16 @@ public class UnitController : MonoBehaviour
     [SerializeField] private GameEvent deselectUnitEvent;
     
     private Unit selectedUnit;
-
     private AbilityUIManager _abilityUIManager;
+
+    public Grid Grid => grid;
+    public Unit SelectedUnit => selectedUnit;
+    public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
+
+    private void Awake()
+    {
+        ServiceLocator.Current.Get<UnitManager>().Controller = this;
+    }
 
     private void Start()
     {

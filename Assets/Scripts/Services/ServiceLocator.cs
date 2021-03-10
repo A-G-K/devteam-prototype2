@@ -14,6 +14,7 @@ public class ServiceLocator
     private ServiceLocator()
     {
         Register(new AbilityUIManager());
+        Register(new UnitManager());
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
