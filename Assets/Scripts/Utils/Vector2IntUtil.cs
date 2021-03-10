@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Vector2IntExtension;
 
 
 public static class Vector2IntUtils
@@ -8,6 +10,31 @@ public static class Vector2IntUtils
     public static int ManhattanDistance(Vector2Int from, Vector2Int to)
     {
         return Math.Abs(from.x - to.x) + Math.Abs(from.y - to.y);
+    }
+
+    public static IEnumerable<Vector2Int> GetNearbyCells(Vector2Int selectedCell, int limit)
+    {
+        Queue<Vector2Int> queue = new Queue<Vector2Int>();
+        HashSet<Vector2Int> visited = new HashSet<Vector2Int>();
+        queue.Enqueue(selectedCell);
+        visited.Add(selectedCell);
+
+        while (queue.Count != 0)
+        {
+            Vector2Int current = queue.Dequeue();
+            visited.Add(current);
+            
+            foreach (Vector2Int neighbourCell in current.GetNeighbouring())
+            {
+                if (!visited.Contains(neighbourCell) && ManhattanDistance(selectedCell, neighbourCell) <= limit)
+                {
+                    queue.Enqueue(neighbourCell);
+                }
+            }
+        }
+
+        visited.Remove(selectedCell);
+        return visited;
     }
 }
 

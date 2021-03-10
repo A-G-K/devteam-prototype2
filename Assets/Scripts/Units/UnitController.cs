@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RoboRyanTron.Unite2017.Events;
 using Services;
 using UnityEngine;
@@ -7,17 +8,37 @@ using UnityEngine;
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private Grid grid;
-
+    [SerializeField] private int actionCountPerTurn = 1;
     [SerializeField] private GameEvent selectUnitEvent;
     [SerializeField] private GameEvent deselectUnitEvent;
     
     private Unit selectedUnit;
-
     private AbilityUIManager _abilityUIManager;
+
+    public Grid Grid => grid;
+
+    public List<Unit> allPlayerUnits = new List<Unit>();
+    public Unit SelectedUnit => selectedUnit;
+    public int ActionCountPerTurn => actionCountPerTurn;
+    public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
+
+    private void Awake()
+    {
+        ServiceLocator.Current.Get<UnitManager>().Controller = this;
+    }
 
     private void Start()
     {
         _abilityUIManager = ServiceLocator.Current.Get<AbilityUIManager>();
+        GameObject[] tempUnits;
+        tempUnits = GameObject.FindGameObjectsWithTag("Unit");
+
+        foreach (GameObject unit in tempUnits) 
+        {
+           
+            allPlayerUnits.Add(unit.gameObject.GetComponent<Unit>());
+        }
+        Debug.Log(allPlayerUnits.Count);
     }
 
     private void Update()
@@ -53,18 +74,29 @@ public class UnitController : MonoBehaviour
     {
         if (selectedUnit == null)
         {
-            Debug.Log($"Selected {unit}");
-            
-            // Here we select a unit
-            selectedUnit = unit;
-            _abilityUIManager.SelectedUnit = unit;
-            selectUnitEvent.Raise();
+            SelectUnit(unit);
         }
         else
         {
-            Debug.Log($"Unselected {selectedUnit}");
-            
-            // Here we un-select a unit
+            DeselectSelectedUnit();
+        }
+    }
+
+    private void SelectUnit(Unit unit)
+    {
+        Debug.Log($"Selected {unit}");
+        
+        selectedUnit = unit;
+        _abilityUIManager.SelectedUnit = unit;
+        selectUnitEvent.Raise();
+    }
+
+    private void DeselectSelectedUnit()
+    {
+        Debug.Log($"Unselected {selectedUnit}");
+        
+        if (selectedUnit != null)
+        {
             selectedUnit = null;
             _abilityUIManager.SelectedUnit = null;
             deselectUnitEvent.Raise();
@@ -82,14 +114,13 @@ public class UnitController : MonoBehaviour
 
         int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
-        if (distance <= selectedUnit.CurrentMovementPoints)
+        if (selectedUnit.CanMove && distance <= selectedUnit.CurrentMovementPoints)
         {
             // TODO Maybe we want some cool coroutine or animation here later
             Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
             selectedUnit.transform.position = finalPos;
-            
-            
             selectedUnit.CurrentMovementPoints -= distance;
+            selectedUnit.ActionCount--;
 
             Debug.Log($"Move to final pos {finalPos}");
         }
@@ -99,6 +130,6 @@ public class UnitController : MonoBehaviour
         }
         
         // Unselect the unit at the end
-        selectedUnit = null;
+        DeselectSelectedUnit();
     }
 }
