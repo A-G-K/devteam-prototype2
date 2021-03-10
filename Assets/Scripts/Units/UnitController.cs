@@ -8,7 +8,7 @@ using UnityEngine;
 public class UnitController : MonoBehaviour
 {
     [SerializeField] private Grid grid;
-
+    [SerializeField] private int actionCountPerTurn = 1;
     [SerializeField] private GameEvent selectUnitEvent;
     [SerializeField] private GameEvent deselectUnitEvent;
     
@@ -19,6 +19,7 @@ public class UnitController : MonoBehaviour
 
     public List<Unit> allPlayerUnits = new List<Unit>();
     public Unit SelectedUnit => selectedUnit;
+    public int ActionCountPerTurn => actionCountPerTurn;
     public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
 
     private void Awake()
@@ -113,14 +114,13 @@ public class UnitController : MonoBehaviour
 
         int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
-        if (distance <= selectedUnit.CurrentMovementPoints)
+        if (selectedUnit.CanMove && distance <= selectedUnit.CurrentMovementPoints)
         {
             // TODO Maybe we want some cool coroutine or animation here later
             Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
             selectedUnit.transform.position = finalPos;
-            
-            
             selectedUnit.CurrentMovementPoints -= distance;
+            selectedUnit.ActionCount--;
 
             Debug.Log($"Move to final pos {finalPos}");
         }

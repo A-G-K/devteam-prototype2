@@ -32,7 +32,11 @@ public class UnitMoveVisualizer : MonoBehaviour
     public void OnUnitSelected()
     {
         tilemap.SetTile((Vector3Int) unitController.SelectedUnitCell, selectedTile);
-        HighlightValidTiles();
+
+        if (unitController.SelectedUnit.CanMove)
+        {
+            HighlightValidTiles();
+        }
     }
 
     public void OnUnitDeselected()

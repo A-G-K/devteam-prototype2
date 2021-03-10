@@ -1,17 +1,16 @@
 using System;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
+using Services;
 
 public enum elementType 
 {
     Air,
     Water,
     Fire,
-
     Earth
-
-
 }
+
 public class Unit : MonoBehaviour
 {   
 
@@ -23,12 +22,16 @@ public class Unit : MonoBehaviour
     private int movementPoints;
 
     public int CurrentMovementPoints { get;  set; }
+    public int ActionCount { get; set; }
+    public bool CanMove => ActionCount > 0;
 
     public Transform trans;
 
     private SpriteRenderer spriteRenderer;
 
     private Element elementType;
+
+    private UnitController unitController;
 
     private void Awake()
     {   
@@ -47,16 +50,23 @@ public class Unit : MonoBehaviour
         ResetTokens();
     }
 
+    private void Start()
+    {
+        unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
+        ActionCount = unitController.ActionCountPerTurn;
+    }
+
     public void NextTurn()
     {
         CurrentMovementPoints = playerData.unit_MovementPoints;
+        ActionCount = unitController.ActionCountPerTurn;
         ResetTokens();
     }
 
     public void ResetTokens()
     {
-        
         playerData.currentTokens.Clear();
+        
         for (int i = 0; i < playerData.unit_StartElementalToken; i++)
         {
             playerData.currentTokens.Add(playerData.elementType);
