@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 4362997921164955414}
   - component: {fileID: -2256117087941772440}
   m_Layer: 5
-  m_Name: Fireball Card
+  m_Name: Fireball Card 1
   m_TagString: AbilityCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7d0f896dc6c44588e1eaa51a3a01a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilityStats: {fileID: 11400000, guid: 176431ae4c1ca074daac7dbd08c7dab5, type: 2}
+  _abilityStats: {fileID: 11400000, guid: 65004989ccf171541af594a3da115fc6, type: 2}
   abilityNameText: {fileID: 5265140210985284947}
   descriptionText: {fileID: 2416672102652092695}
   abilityImage: {fileID: 4678418259480443568}

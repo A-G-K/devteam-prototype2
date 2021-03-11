@@ -37,6 +37,16 @@ public class TokensUI : MonoBehaviour
         ClearTokens();
     }
 
+    public void UpdateTokens()
+    {
+        // HELP MEEEEEE || Idk make it so we just remove used tokens instead
+        if (gameObject.activeSelf)
+        {
+            ClearTokens();
+            ShowTokens();
+        }
+    }
+
     private void ShowTokens()
     {
         var tokens = _unitManager.Controller.SelectedUnit.playerData.currentTokens;

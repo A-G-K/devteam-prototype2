@@ -24,9 +24,7 @@ public class Unit : MonoBehaviour
     public int CurrentMovementPoints { get;  set; }
     public int ActionCount { get; set; }
     public bool CanMove => CurrentMovementPoints > 0;
-
-    public Transform trans;
-
+    
     private SpriteRenderer spriteRenderer;
 
     private Element elementType;

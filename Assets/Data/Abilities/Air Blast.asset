@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d13a8bd90be4744e83bc47ebe8b37d5, type: 3}
+  m_Name: Air Blast
+  m_EditorClassIdentifier: 
+  abilityPrefab: {fileID: 5796083474113973563, guid: d39f6e3712a49254fb6648b8e715ac8d, type: 3}
+  Description: 'Damage 1
+
+    Range: 4 Radius: 1'
+  element: {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
+  icon: {fileID: 9117958051775090631, guid: 44e84488212491047926adc0141f69ac, type: 3}
+  damage: 1
+  range: 4
+  radius: 1
+  elementalCost:
+  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
+  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}

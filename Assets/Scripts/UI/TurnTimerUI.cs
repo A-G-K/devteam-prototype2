@@ -7,15 +7,19 @@ using UnityEngine;
 public class TurnTimerUI : MonoBehaviour
 {
     [SerializeField] private string _turnText;
-    //private TurnManager _turnManager;
+
+    private TurnController _turnController;
     private TextMeshProUGUI _text;
 
-    private int _turns = 1;
     // Start is called before the first frame update
     void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        //_turnManager = ServiceLocator.Current.Get<TurnManager>();
+    }
+
+    private void Start()
+    {
+        _turnController = ServiceLocator.Current.Get<TurnManager>().TurnController;
     }
 
     // Update is called once per frame
@@ -24,9 +28,9 @@ public class TurnTimerUI : MonoBehaviour
         
     }
 
-    public void OnEndTurn()
+    public void OnNewRound()
     {
-        _turns++;
-        _text.text = _turnText + " " + _turns;
+        int turns = _turnController.roundCounter;
+        _text.text = _turnText + " " + turns;
     }
 }

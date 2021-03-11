@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 45780866}
   - component: {fileID: 45780865}
   - component: {fileID: 45780864}
+  - component: {fileID: 45780868}
+  - component: {fileID: 45780867}
   m_Layer: 5
   m_Name: End Turn Button
   m_TagString: Untagged
@@ -256,6 +258,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45780862}
   m_CullTransparentMesh: 1
+--- !u!114 &45780867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45780862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!223 &45780868
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45780862}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &116102339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,6 +1150,7 @@ GameObject:
   - component: {fileID: 976826644}
   - component: {fileID: 976826646}
   - component: {fileID: 976826645}
+  - component: {fileID: 976826647}
   m_Layer: 5
   m_Name: Tokens
   m_TagString: Untagged
@@ -1175,6 +1216,34 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &976826647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976826643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: de132811453b9c84d9f8468887d81bf6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 976826645}
+        m_TargetAssemblyTypeName: TokensUI, Assembly-CSharp
+        m_MethodName: UpdateTokens
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1027455272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,13 +1357,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: b17ac37bdcc0c9e4a85969df6d811d5b, type: 2}
+  Event: {fileID: 11400000, guid: f5ec72745de9e9e4db21ef493edbc7d6, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1120407494}
         m_TargetAssemblyTypeName: TurnTimerUI, Assembly-CSharp
-        m_MethodName: OnTurnChange
+        m_MethodName: OnNewRound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1653,7 +1722,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570769484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
@@ -2096,9 +2165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndTurn: {fileID: 11400000, guid: b17ac37bdcc0c9e4a85969df6d811d5b, type: 2}
+  NewRound: {fileID: 11400000, guid: f5ec72745de9e9e4db21ef493edbc7d6, type: 2}
   txtTurnIndicator: {fileID: 1378451671}
   txtButtonText: {fileID: 915809187}
   btnEndTurn: {fileID: 45780864}
+  roundCounter: 1
 --- !u!4 &1740483561
 Transform:
   m_ObjectHideFlags: 0
@@ -2186,7 +2257,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1740483563}
         m_TargetAssemblyTypeName: AbilityController, Assembly-CSharp
-        m_MethodName: abilitySelcted
+        m_MethodName: abilitySelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2450,6 +2521,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: unitData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1633197587689853318, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
       propertyPath: m_Name
       value: Air Elemental Unit

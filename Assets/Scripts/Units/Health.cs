@@ -5,10 +5,14 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private UnitData unitData;
-    
     private int maxHealth;
-    public int MaxHealth {get; set;}
+
+    public int MaxHealth
+    {
+        get => maxHealth;
+        set => maxHealth = value;
+    }
+
     public UnityEvent onDeath;
 
     public int CurrentHealth { get; private set; }
@@ -31,6 +35,7 @@ public class Health : MonoBehaviour
 
     public void TakeHeal(int amount)
     {
+        amount = Mathf.Abs(amount);
         CurrentHealth = Mathf.Min(CurrentHealth + amount, maxHealth);
     }
 }

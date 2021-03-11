@@ -15,6 +15,7 @@ public enum Turn
 public class TurnController : MonoBehaviour
 {
     [SerializeField] private GameEvent EndTurn;
+    [SerializeField] private GameEvent NewRound;
 
     [SerializeField] private Text txtTurnIndicator;
 
@@ -30,7 +31,7 @@ public class TurnController : MonoBehaviour
 
     public void EndTurnButton() => EndTurn.Raise();
 
-    
+    public int roundCounter = 1;
 
     
     void Awake() 
@@ -75,7 +76,9 @@ public class TurnController : MonoBehaviour
             txtButtonText.text = "END TURN";
             btnEndTurn.enabled = true;
             unitController.enabled = true;
-            
+
+            roundCounter++;
+            NewRound.Raise();
             foreach (Unit unit in unitController.allPlayerUnits) 
             
             {

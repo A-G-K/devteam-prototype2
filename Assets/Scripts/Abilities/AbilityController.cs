@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,20 +8,25 @@ using Services;
 public class AbilityController : MonoBehaviour
 {
 
-       private UnitController unitController;
+    private UnitController unitController;
 
-        [SerializeField] private GameEvent selectedAbility;
+    [SerializeField] private GameEvent selectedAbility;
 
-        private UnitMoveVisualizer unitMoveVisualizer;
-
-
-        public AbilityStats curSelectedAbility;
+    private UnitMoveVisualizer unitMoveVisualizer;
 
 
-        public bool isAbilitySelected = false;
+    public AbilityStats curSelectedAbility;
 
-        private UnitManager unitManager;
 
+    public bool isAbilitySelected = false;
+
+    private UnitManager unitManager;
+
+
+    private void Awake()
+    {
+        ServiceLocator.Current.Get<AbilityUIManager>().AbilityController = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +34,6 @@ public class AbilityController : MonoBehaviour
         
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         unitMoveVisualizer = ServiceLocator.Current.Get<UnitManager>().Visualizer;
-        ServiceLocator.Current.Get<AbilityUIManager>().AbilityController = this;
        
     }
 
@@ -36,7 +41,7 @@ public class AbilityController : MonoBehaviour
     void Update()
     {
 
-         if (unitController.SelectedUnit != null) 
+        if (unitController.SelectedUnit != null) 
         {
             int i =0;
             foreach (var ability in unitController.SelectedUnit.playerData.abilitiesList) 
@@ -66,11 +71,10 @@ public class AbilityController : MonoBehaviour
 
     public void showAbilityRange()
     {
-      
-         unitMoveVisualizer.HighlightAbilityRange(curSelectedAbility.range); 
+        unitMoveVisualizer.HighlightAbilityRange(curSelectedAbility.range); 
     }
 
-    public void abilitySelcted() 
+    public void abilitySelected() 
     {
         isAbilitySelected = true;
     }
