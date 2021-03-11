@@ -855,8 +855,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Health: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
+  m_sharedMaterial: {fileID: -964113536500315323, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1118,7 +1118,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 233100c08622f64449cfe67855dece01, type: 3}
+    m_Font: {fileID: 12800000, guid: e82d110ee2042464186afff2df14495d, type: 3}
     m_FontSize: 67
     m_FontStyle: 0
     m_BestFit: 0
@@ -1281,6 +1281,7 @@ MonoBehaviour:
   damageSfx: {fileID: 8300000, guid: b86399a4ac27cb943b079639dd8431d8, type: 3}
   healSfx: {fileID: 8300000, guid: 4141c70382ce5904d8ee0e2906f254bb, type: 3}
   selectUnitSfx: {fileID: 8300000, guid: 877348e3ae84555458b43205c0e05d95, type: 3}
+  deselectUnitSfx: {fileID: 8300000, guid: 8b65290db3efe3f4aa2894857246a0d9, type: 3}
 --- !u!4 &1027455274
 Transform:
   m_ObjectHideFlags: 0
@@ -1398,8 +1399,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Turn: 1'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
+  m_sharedMaterial: {fileID: -964113536500315323, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1678,7 +1679,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 233100c08622f64449cfe67855dece01, type: 3}
+    m_Font: {fileID: 12800000, guid: e82d110ee2042464186afff2df14495d, type: 3}
     m_FontSize: 92
     m_FontStyle: 0
     m_BestFit: 0
@@ -1860,8 +1861,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'MP: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
+  m_sharedMaterial: {fileID: -964113536500315323, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2169,8 +2170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EndTurn: {fileID: 11400000, guid: b17ac37bdcc0c9e4a85969df6d811d5b, type: 2}
   NewRound: {fileID: 11400000, guid: f5ec72745de9e9e4db21ef493edbc7d6, type: 2}
-  EnemyTurn: {fileID: 0}
-  PlayerTurn: {fileID: 0}
+  EnemyTurn: {fileID: 11400000, guid: f3cec636106341aaca6a3f9441e01cb4, type: 2}
+  PlayerTurn: {fileID: 11400000, guid: 4c93b1fdd5beead40b795bdff203f691, type: 2}
   txtTurnIndicator: {fileID: 1378451671}
   txtButtonText: {fileID: 915809187}
   btnEndTurn: {fileID: 45780864}
