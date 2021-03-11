@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,10 @@ public class TurnController : MonoBehaviour
 {
     [SerializeField] private GameEvent EndTurn;
 
+    [SerializeField] private GameEvent EnemyTurn;
+
+    [SerializeField] private GameEvent PlayerTurn;
+
     [SerializeField] private Text txtTurnIndicator;
 
     [SerializeField] private Text txtButtonText;
@@ -23,24 +28,38 @@ public class TurnController : MonoBehaviour
     [SerializeField] private Button btnEndTurn;
 
 
-        public Turn CurrentTurn {get; set;}
+    public Turn CurrentTurn {get; set;}
 
 
     private UnitController unitController;
+    private bool isChangingTurn;
 
-    public void EndTurnButton() => EndTurn.Raise();
-
-    
-
-    
-    void Awake() 
+    public void EndTurnButton()
     {
-            ServiceLocator.Current.Get<TurnManager>().TurnController = this;
-            CurrentTurn = Turn.Player;
-            
+        if (!isChangingTurn)
+        {
+            EndTurn.Raise();
+        }
+        else
+        {
+            StartCoroutine(WaitAndEndTurn());
+        }
     }
 
-    void Start() 
+    private IEnumerator WaitAndEndTurn()
+    {
+        yield return new WaitWhile(() => isChangingTurn);
+        yield return null;
+        EndTurn.Raise();
+    }
+
+    private void Awake() 
+    {
+        ServiceLocator.Current.Get<TurnManager>().TurnController = this;
+        CurrentTurn = Turn.Player;
+    }
+
+    private void Start() 
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         txtTurnIndicator.color = new Color32(0,255,0,255);
@@ -51,8 +70,9 @@ public class TurnController : MonoBehaviour
 
 
 
-    public void ChangeTurn() 
+    public void ChangeTurn()
     {
+        isChangingTurn = true;
 
         // UI CHANGES
         if (CurrentTurn == Turn.Player) 
@@ -64,9 +84,11 @@ public class TurnController : MonoBehaviour
             txtButtonText.text = "WAIT FOR ENEMY'S TURN";
             btnEndTurn.enabled = false;
             unitController.enabled = false;
-            StartCoroutine(timer()); // for debugging
-
-        } else 
+            // StartCoroutine(DelayAndChangeTurn()); // for debugging
+            
+            EnemyTurn.Raise();
+        } 
+        else 
         {
             CurrentTurn = Turn.Player;
             txtTurnIndicator.color = new Color32(0,255,0,255);
@@ -82,33 +104,23 @@ public class TurnController : MonoBehaviour
                 unit.NextTurn();
             }
 
-
-
+            PlayerTurn.Raise();
         }
 
         Debug.Log($"======>TURN HAS CHANGED TO {CurrentTurn}");
-
+        isChangingTurn = false;
     }
 
-    IEnumerator timer() 
+    private IEnumerator DelayAndChangeTurn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return DelayAndChangeTurn(2f);
+    }
+    
+    private IEnumerator DelayAndChangeTurn(float seconds) 
+    {
+        yield return new WaitForSeconds(seconds);
         ChangeTurn();
     }
-
-
-
-
-  
-
-
-
-
- 
-    
-
-
-
 }
 
 
