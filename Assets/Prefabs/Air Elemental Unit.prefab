@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1633197587689853371}
   - component: {fileID: 1633197587689853317}
   - component: {fileID: 1633197587689853369}
+  - component: {fileID: 1996956236062032094}
   m_Layer: 0
   m_Name: Air Elemental Unit
   m_TagString: Unit
@@ -90,6 +91,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1996956236062032094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633197587689853318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f484e5afa9fa4836a623a02e85227562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  movementAnimator: {fileID: 1089057333115253511}
 --- !u!1 &1633197588186834892
 GameObject:
   m_ObjectHideFlags: 0

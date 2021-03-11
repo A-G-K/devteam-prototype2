@@ -14,15 +14,18 @@ public class UnitController : MonoBehaviour
 
     private PlayerUnit selectedPlayerUnit;
     private GridController gridController;
+    private AbilityController abilityController;
     private Grid grid;
+    /// We need to keep track of all the units that are moving or attacking because we do not want to move into the 
+    /// next turn before all the units are done doing whatever
+    private int actingUnitsCount;
 
     public List<PlayerUnit> allPlayerUnits = new List<PlayerUnit>();
+    public bool IsAnyUnitActing => actingUnitsCount > 0;
     public PlayerUnit SelectedPlayerUnit => selectedPlayerUnit;
     public int ActionCountPerTurn => actionCountPerTurn;
     public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedPlayerUnit.transform.position);
     public IEnumerable<PlayerUnit> AllPlayerUnits => allPlayerUnits.AsReadOnly();
-
-    private AbilityController abilityController;
 
     [Header("Audio stuff")]
     [SerializeField] private AudioClip damageSfx;
@@ -158,33 +161,41 @@ public class UnitController : MonoBehaviour
     {
         if (selectedPlayerUnit == null) return;
 
+        actingUnitsCount++;
+        // Store the variable locally because player might get unselected while this is running Asynchronously
+        PlayerUnit currentUnit = selectedPlayerUnit;
+
         if (!abilityController.isAbilitySelected)
         {
             Debug.Log($"Move {selectedPlayerUnit} towards {targetPos}");
 
             Vector2Int targetCellPos = (Vector2Int) grid.WorldToCell(targetPos);
-            Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(selectedPlayerUnit.transform.position);
+            Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(currentUnit.transform.position);
 
             int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
-            if (selectedPlayerUnit.CanMove && distance <= selectedPlayerUnit.CurrentMovementPoints)
+            if (currentUnit.CanMove && distance <= currentUnit.CurrentMovementPoints)
             {
-                // TODO Maybe we want some cool coroutine or animation here later
-                Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
-                selectedPlayerUnit.transform.position = finalPos;
-                selectedPlayerUnit.CurrentMovementPoints -= distance;
-                selectedPlayerUnit.ActionCount--;
+                // Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
+                // currentUnit.transform.position = finalPos;
 
-                Debug.Log($"Move to final pos {finalPos}");
+                UnitMover unitMover = currentUnit.GetComponent<UnitMover>();
+                // Make sure to deselect the unit before we apply the animations or let the player do anything else
+                DeselectSelectedPlayerUnit();
+                
+                // Do some movement animations
+                await unitMover.MoveTo(targetCellPos);
+                
+                currentUnit.CurrentMovementPoints -= distance;
+                currentUnit.ActionCount--;
             }
             else
             {
-                Debug.Log($"Can't move unit, lacking {distance - selectedPlayerUnit.CurrentMovementPoints} movement points");
+                Debug.Log($"Can't move unit, lacking {distance - currentUnit.CurrentMovementPoints} movement points");
             }
-
-            // Unselect the unit at the end
-            DeselectSelectedPlayerUnit();
         }
+
+        actingUnitsCount--;
     }
 
     private void AttackSelectedUnit(IUnit target) // SET THE NEW PARAMETER FOR THIS METHOD TO BE THE ENEMY UNIT
