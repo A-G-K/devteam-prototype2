@@ -72,7 +72,7 @@ public class TurnController : MonoBehaviour
             CurrentTurn = Turn.Enemy;
             
             unitController.enabled = false;
-             StartCoroutine(DelayAndChangeTurn()); // for debugging
+             //StartCoroutine(DelayAndChangeTurn()); // for debugging
             _turnManager.ChangeToEnemyTurn();
             EnemyTurn.Raise();
         } 
