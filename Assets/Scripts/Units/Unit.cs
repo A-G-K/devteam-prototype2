@@ -44,7 +44,8 @@ public class Unit : MonoBehaviour
     
 
         CurrentMovementPoints = playerData.unit_MovementPoints;
-        spriteRenderer.color = playerData.unit_Colour;
+        // We can ignore this for now
+        // spriteRenderer.color = playerData.unit_Colour;
         elementType = playerData.elementType;
         heathData.MaxHealth = playerData.unit_MaxHealth;
         Debug.Log($"{playerData.unit_name} spawned!");
