@@ -11,9 +11,10 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private int movementPoints = 3;
 
     private UnitController unitController;
+    private GridController gridController;
     
     public int CurrentMovementPoints { get; set; }
-    public Vector2Int CurrentCell => (Vector2Int) unitController.Grid.WorldToCell(transform.position);
+    public Vector2Int CurrentCell => (Vector2Int) gridController.Grid.WorldToCell(transform.position);
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
+        gridController = ServiceLocator.Current.Get<GridManager>().Controller;
         SnapToCurrentCell();
     }
 
@@ -38,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void MoveTo(Vector2Int cell)
     {
-        Vector2 finalPos = unitController.Grid.CellToWorld((Vector3Int) cell) + unitController.Grid.cellSize / 2f;
+        Vector2 finalPos = gridController.Grid.CellToWorld((Vector3Int) cell) + gridController.Grid.cellSize / 2f;
         transform.position = finalPos;
     }
 
@@ -83,7 +85,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector2Int FindClosestCellTowards(Vector2Int targetCell)
     {
-        Navigator navigator = new Navigator(unitController.Grid, CurrentCell);
+        Navigator navigator = new Navigator(gridController.Grid, CurrentCell);
 
         List<Vector2Int> navigationCells = navigator.CalculateNavigationCells(targetCell);
 

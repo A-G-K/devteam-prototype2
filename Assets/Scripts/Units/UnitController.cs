@@ -8,14 +8,13 @@ using UnityEngine.EventSystems;
 
 public class UnitController : MonoBehaviour
 {
-    [SerializeField] private Grid grid;
     [SerializeField] private int actionCountPerTurn = 1;
     [SerializeField] private GameEvent selectUnitEvent;
     [SerializeField] private GameEvent deselectUnitEvent;
 
     private Unit selectedUnit;
-
-    public Grid Grid => grid;
+    private GridController gridController;
+    private Grid grid;
 
     public List<Unit> allPlayerUnits = new List<Unit>();
     public Unit SelectedUnit => selectedUnit;
@@ -32,6 +31,9 @@ public class UnitController : MonoBehaviour
 
     private void Start()
     {
+        gridController = ServiceLocator.Current.Get<GridManager>().Controller;
+        grid = gridController.Grid;
+        
         GameObject[] tempUnits;
         tempUnits = GameObject.FindGameObjectsWithTag("Unit");
 

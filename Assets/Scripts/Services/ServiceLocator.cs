@@ -13,6 +13,7 @@ public class ServiceLocator
 
     private ServiceLocator()
     {
+        Register(new GridManager());
         Register(new AbilityUIManager());
         Register(new UnitManager());
         Register(new TurnManager());

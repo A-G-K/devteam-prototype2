@@ -10,34 +10,31 @@ public class UnitMoveVisualizer : MonoBehaviour
 {
     [SerializeField] private Sprite validCellSprite;
     [SerializeField] private Sprite selectedCellSprite;
-
     [SerializeField] private Sprite abilityCellSprite;
-
-    [SerializeField] private Tilemap tilemap;
-
+    
+    private Tilemap visualTilemap;
     private Grid grid;
     private UnitController unitController;
+    private GridController gridController;
     private Tile validTile;
     private Tile selectedTile;
-
     private Tile validAbilityCell;
-
     private AbilityController abilityController;
-
     private UnitManager unitManager;
-
 
     private void Awake()
     {
         ServiceLocator.Current.Get<UnitManager>().Visualizer = this;
-
     }
+    
     private void Start()
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
-        grid = unitController.Grid;
-
+        gridController = ServiceLocator.Current.Get<GridManager>().Controller;
+        grid = gridController.Grid;
         abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
+
+        visualTilemap = gridController.VisualTilemap;
 
         validTile = ScriptableObject.CreateInstance<Tile>();
         validTile.sprite = validCellSprite;
@@ -45,13 +42,13 @@ public class UnitMoveVisualizer : MonoBehaviour
         selectedTile = ScriptableObject.CreateInstance<Tile>();
         selectedTile.sprite = selectedCellSprite;
 
-          validAbilityCell = ScriptableObject.CreateInstance<Tile>();
-          validAbilityCell.sprite = abilityCellSprite;
+        validAbilityCell = ScriptableObject.CreateInstance<Tile>();
+        validAbilityCell.sprite = abilityCellSprite;
     }
 
     public void OnUnitSelected()
     {
-        tilemap.SetTile((Vector3Int) unitController.SelectedUnitCell, selectedTile);
+        visualTilemap.SetTile((Vector3Int) unitController.SelectedUnitCell, selectedTile);
 
         if (unitController.SelectedUnit.CanMove)
         {
@@ -61,12 +58,12 @@ public class UnitMoveVisualizer : MonoBehaviour
 
     public void OnUnitDeselected()
     {
-        tilemap.ClearAllTiles();
+        visualTilemap.ClearAllTiles();
     }
 
     public void HighlightAbilityRange(int range) 
     {
-        tilemap.ClearAllTiles();
+        visualTilemap.ClearAllTiles();
         HighlightValidTiles(range, validAbilityCell);
     } 
 
@@ -79,7 +76,7 @@ public class UnitMoveVisualizer : MonoBehaviour
             Vector2IntUtils.GetNearbyCells(unitController.SelectedUnitCell, range))
 
         {
-            tilemap.SetTile((Vector3Int) cell, tileType);
+            visualTilemap.SetTile((Vector3Int) cell, tileType);
         }
     }
 }

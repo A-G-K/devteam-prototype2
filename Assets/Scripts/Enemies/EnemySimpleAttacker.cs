@@ -8,12 +8,14 @@ public class EnemySimpleAttacker : MonoBehaviour
     [SerializeField] private int attackDamage;
     
     private UnitController unitController;
+    private GridController gridController;
     
-    public Vector2Int CurrentCell => (Vector2Int) unitController.Grid.WorldToCell(transform.position);
+    public Vector2Int CurrentCell => (Vector2Int) gridController.Grid.WorldToCell(transform.position);
 
     private void Start()
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
+        gridController = ServiceLocator.Current.Get<GridManager>().Controller;
     }
 
     public void AttackEnemy(Unit playerUnit)

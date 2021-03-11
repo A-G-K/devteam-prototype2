@@ -24,13 +24,15 @@ public class Unit : MonoBehaviour
     public int CurrentMovementPoints { get;  set; }
     public int ActionCount { get; set; }
     public bool CanMove => ActionCount > 0;
-    public Vector2Int CurrentCell => (Vector2Int) unitController.Grid.WorldToCell(transform.position);
+    public Vector2Int CurrentCell => (Vector2Int) gridController.Grid.WorldToCell(transform.position);
 
     private SpriteRenderer spriteRenderer;
 
     private Element elementType;
 
     private UnitController unitController;
+
+    private GridController gridController;
 
     private void Awake()
     {   
@@ -51,6 +53,7 @@ public class Unit : MonoBehaviour
 
     private void Start()
     {
+        gridController = ServiceLocator.Current.Get<GridManager>().Controller;
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         ActionCount = unitController.ActionCountPerTurn;
     }
