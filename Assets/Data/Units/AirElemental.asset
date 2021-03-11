@@ -21,13 +21,9 @@ MonoBehaviour:
   unit_MaxHealth: 40
   elementType: {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
   abilitiesList:
-  - {fileID: 11400000, guid: 5f26964f0614ec04a908d578a53061e5, type: 2}
-  - {fileID: 11400000, guid: 176431ae4c1ca074daac7dbd08c7dab5, type: 2}
-  - {fileID: 11400000, guid: be6ac29eb49a70a4f95bbf78566a3fcf, type: 2}
+  - {fileID: 11400000, guid: d9456281c03effa458578dc68d9fd2f7, type: 2}
   - {fileID: 11400000, guid: 65004989ccf171541af594a3da115fc6, type: 2}
   unit_MovementPoints: 5
   unit_StartElementalToken: 3
   currentTokens:
-  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
-  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
   - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}

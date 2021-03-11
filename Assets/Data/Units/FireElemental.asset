@@ -20,10 +20,19 @@ MonoBehaviour:
     rgba: 4278190335
   unit_MaxHealth: 50
   elementType: {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  abilitiesList:
+  - {fileID: 11400000, guid: 176431ae4c1ca074daac7dbd08c7dab5, type: 2}
+  - {fileID: 11400000, guid: 4bbad337a65872c4db8101737590c32f, type: 2}
   unit_MovementPoints: 3
-  unit_StartElementalToken: 4
+  unit_StartElementalToken: 5
+  startingTokens:
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
   currentTokens:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}

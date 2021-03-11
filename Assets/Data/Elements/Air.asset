@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b807d97637559c64faf6654a2b77aac6, type: 3}
   m_Name: Air
   m_EditorClassIdentifier: 
-  icon: {fileID: 9117958051775090631, guid: 44e84488212491047926adc0141f69ac, type: 3}
+  icon: {fileID: -3212970675101442505, guid: 00312ebfaae5dea4981057ca0ef06518, type: 3}
   weakAgainstElements:
   - {fileID: 11400000, guid: 8642fe209dbd721498074a08dd088620, type: 2}
   strongAgainstElements:

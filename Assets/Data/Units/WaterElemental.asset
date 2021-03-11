@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f26964f0614ec04a908d578a53061e5, type: 2}
   unit_MovementPoints: 3
   unit_StartElementalToken: 4
+  startingTokens: []
   currentTokens:
   - {fileID: 11400000, guid: 8642fe209dbd721498074a08dd088620, type: 2}
   - {fileID: 11400000, guid: 8642fe209dbd721498074a08dd088620, type: 2}

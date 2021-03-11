@@ -20,8 +20,10 @@ MonoBehaviour:
     rgba: 4278231039
   unit_MaxHealth: 75
   elementType: {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
+  abilitiesList: []
   unit_MovementPoints: 3
   unit_StartElementalToken: 2
+  startingTokens: []
   currentTokens:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
+  - {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
