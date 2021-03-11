@@ -92,7 +92,9 @@ public class DamageAbility : MonoBehaviour, IPointerDownHandler
 
     private void OnEnable()
     {
-        PlayerData playerData = ServiceLocator.Current.Get<UnitManager>().Controller.SelectedUnit.playerData;
+        UnitController unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
+        PlayerData playerData = unitController.SelectedUnit.playerData;
+        
         abilityNameText.text = _abilityStats.name;
         descriptionText.text = _abilityStats.Description;
         abilityImage.sprite = _abilityStats.icon;
@@ -104,11 +106,24 @@ public class DamageAbility : MonoBehaviour, IPointerDownHandler
             tokenSprites[i].sprite = _abilityStats.elementalCost[i].icon;
         }
 
-        if (_abilityStats.elementalCost.All(playerData.currentTokens.Contains))
+        List<Element> tokens = _abilityStats.elementalCost.ToList();
+        List<Element> playerTokens = playerData.currentTokens.ToList();
+        
+        foreach (var element in tokens.ToList())
         {
-            isUsable = true;
-            Debug.Log("Tokens exists");
+            if (playerTokens.Contains(element))
+            {
+                tokens.Remove(element);
+                playerTokens.Remove(element);
+            }
+            else
+            {
+                break;
+            }
         }
+        
+        isUsable = tokens.Count == 0;
+        //isUsable = true;
 
         // Check if selected unit has enough tokens, if so set isUsable to true else false.
         _canvasGroup.alpha = isUsable ? 1f : 0.7f;
