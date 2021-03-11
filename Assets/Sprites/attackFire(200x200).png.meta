@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 53a840a46889eaea5a6c974e95d76661
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7590191594922719183
+    second: attackFire(200x200)_0
+  - first:
+      213: 2336297824988590651
+    second: attackFire(200x200)_1
+  - first:
+      213: 3733042895044259111
+    second: attackFire(200x200)_2
+  - first:
+      213: 57023082023282921
+    second: attackFire(200x200)_3
+  - first:
+      213: 518613710610170779
+    second: attackFire(200x200)_4
+  - first:
+      213: -4860046162862469476
+    second: attackFire(200x200)_5
+  - first:
+      213: 2914746729849904387
+    second: attackFire(200x200)_6
+  - first:
+      213: -3963402787856695120
+    second: attackFire(200x200)_7
+  - first:
+      213: 3916164231687986344
+    second: attackFire(200x200)_8
+  - first:
+      213: 7776132195817304677
+    second: attackFire(200x200)_9
+  - first:
+      213: -5970766280449745519
+    second: attackFire(200x200)_10
+  - first:
+      213: 5865463871163971916
+    second: attackFire(200x200)_11
+  - first:
+      213: -718828131859433156
+    second: attackFire(200x200)_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: attackFire(200x200)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 450
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 138c97f75f83aa690800000000000000
+      internalID: -7590191594922719183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_1
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 450
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3276fb5e723c6020800000000000000
+      internalID: 2336297824988590651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_2
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 450
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72da86a0cbe6ec330800000000000000
+      internalID: 3733042895044259111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_3
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 450
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e8eef3e0369ac000800000000000000
+      internalID: 57023082023282921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_4
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 450
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b93019c0c6c723700800000000000000
+      internalID: 518613710610170779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 225
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e0596b3c5ad8cb0800000000000000
+      internalID: -4860046162862469476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_6
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 225
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30d5fe235b2437820800000000000000
+      internalID: 2914746729849904387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_7
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 225
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b04208d92a2ff8c0800000000000000
+      internalID: -3963402787856695120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_8
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 225
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac5ad7be92095630800000000000000
+      internalID: 3916164231687986344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_9
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 225
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5623b2a480f5aeb60800000000000000
+      internalID: 7776132195817304677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d99e0d3b3932da0800000000000000
+      internalID: -5970766280449745519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_11
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c49bd937050566150800000000000000
+      internalID: 5865463871163971916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attackFire(200x200)_12
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 225
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39f5f16f953606f0800000000000000
+      internalID: -718828131859433156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
