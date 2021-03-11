@@ -30,23 +30,11 @@ public class EnemyMovement : MonoBehaviour
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
         unitMover = GetComponent<UnitMover>();
-        SnapToCurrentCell();
     }
 
     public void ResetMovement()
     {
         CurrentMovementPoints = movementPoints;
-    }
-
-    public void SnapToCurrentCell()
-    {
-        InstantlyMoveTo(CurrentCell);
-    }
-
-    public void InstantlyMoveTo(Vector2Int targetCell)
-    {
-        Vector2 finalPos = gridController.Grid.CellToWorld((Vector3Int) targetCell) + gridController.Grid.cellSize / 2f;
-        transform.position = finalPos;
     }
 
     public async Task MoveTo(Vector2Int targetCell)

@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  footHeightOffset: 0.1
   movementAnimator: {fileID: 9006926530318837854}
 --- !u!1 &8052869878136278459
 GameObject:

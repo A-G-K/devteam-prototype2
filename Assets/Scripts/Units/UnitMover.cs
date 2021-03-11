@@ -10,6 +10,7 @@ using UnityEngine;
 public class UnitMover : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float footHeightOffset = 0.1f;
     [SerializeField] private Animator movementAnimator;
 
     private GridController gridController;
@@ -22,6 +23,19 @@ public class UnitMover : MonoBehaviour
     private void Start()
     {
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
+        SnapToCurrentCell();
+    }
+    
+    public void SnapToCurrentCell()
+    {
+        InstantlyMoveTo(CurrentCell);
+    }
+
+    public void InstantlyMoveTo(Vector2Int targetCell)
+    {
+        Vector2 finalPos = gridController.Grid.CellToWorld((Vector3Int) targetCell) + gridController.Grid.cellSize / 2f;
+        finalPos.y += footHeightOffset;
+        transform.position = finalPos;
     }
 
     public async Task MoveTo(Vector2Int targetCell)
@@ -33,13 +47,13 @@ public class UnitMover : MonoBehaviour
 
     private async Task MoveAlongPath(IEnumerable<Vector2Int> navigationCells)
     {
-        bool isLastMovingLeft = false;
         movementAnimator.SetBool(IsMovingParam, true);
         
         foreach (Vector2Int targetCell in navigationCells.Skip(1))
         {
             // Here we convert a given cell into a position
             Vector2 targetPos = targetCell + (Vector2) Grid.cellSize / 2f;
+            targetPos.y += footHeightOffset;
             
             float lastMoveSpeed = moveSpeed;
             Vector2 currentPosition = transform.localPosition;

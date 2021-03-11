@@ -88,7 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f484e5afa9fa4836a623a02e85227562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1
+  footHeightOffset: 0.1
   movementAnimator: {fileID: 6156098458619813583}
 --- !u!1 &9133284141742814751
 GameObject:

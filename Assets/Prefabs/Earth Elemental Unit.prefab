@@ -206,4 +206,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  footHeightOffset: 0.1
   movementAnimator: {fileID: 2082723817885981067}
