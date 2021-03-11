@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d13a8bd90be4744e83bc47ebe8b37d5, type: 3}
   m_Name: AirTouch
   m_EditorClassIdentifier: 
-  abilityPrefab: {fileID: 0}
-  Description: 
-  element: {fileID: 0}
-  icon: {fileID: 0}
-  damage: 0
+  abilityPrefab: {fileID: 884818336719409795, guid: c3e6bfb1e9b8d7e4e9721e41bb3209a9, type: 3}
+  Description: 'Damage 3
+
+    Range: 1 Radius: 1'
+  element: {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
+  icon: {fileID: -2403909022129824189, guid: 00312ebfaae5dea4981057ca0ef06518, type: 3}
+  damage: 3
   range: 1
   radius: 1
-  elementalCost: []
+  elementalCost:
+  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
+  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
+  - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}

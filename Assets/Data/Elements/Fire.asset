@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b807d97637559c64faf6654a2b77aac6, type: 3}
   m_Name: Fire
   m_EditorClassIdentifier: 
-  icon: {fileID: 4679453218678828164, guid: 44e84488212491047926adc0141f69ac, type: 3}
+  icon: {fileID: -5225308585116214227, guid: 00312ebfaae5dea4981057ca0ef06518, type: 3}
   weakAgainstElements:
   - {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
   strongAgainstElements:
