@@ -31,6 +31,7 @@ public class TurnController : MonoBehaviour
 
     public Turn CurrentTurn {get; set;}
 
+    public int roundCounter;
 
     private UnitController unitController;
     private bool isChangingTurn;
