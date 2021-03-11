@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 
@@ -19,7 +21,12 @@ public class KnightEnemy : MonoBehaviour, IEnemyBehaviour
 
     public void ActOnTurn()
     {
-        enemyMovement.MoveTo(enemyMovement.TowardsNearestPlayerUnit());
+        DoActOnTurn();
+    }
+
+    private async Task DoActOnTurn()
+    {
+        await enemyMovement.MoveTo(enemyMovement.TowardsNearestPlayerUnit());
         IEnumerable<PlayerUnit> nearbyPlayerUnits = enemyMovement.GetNearbyPlayerUnits();
         PlayerUnit anyPlayerPlayerUnit = nearbyPlayerUnits.FirstOrDefault();
 

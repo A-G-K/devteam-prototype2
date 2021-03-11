@@ -466,7 +466,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireKnightEnemy
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3674943442520804951, guid: 85fc0144a470360b798e4df407b6fbae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 85fc0144a470360b798e4df407b6fbae, type: 3}
 --- !u!1001 &1315566177
 PrefabInstance:
