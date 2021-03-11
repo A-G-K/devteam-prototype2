@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : IGameService
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public AudioController Controller { get; set; }
 
-    // Update is called once per frame
-    void Update()
+    public void PlaySound(AudioClip audioClip)
     {
-        
+        Controller.playSound(audioClip);
     }
 }

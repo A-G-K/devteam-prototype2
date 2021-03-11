@@ -25,6 +25,12 @@ public class UnitController : MonoBehaviour
 
     private AbilityController abilityController;
 
+    [Header("Audio stuff")]
+    [SerializeField] private AudioClip damageSfx;
+    [SerializeField] private AudioClip healSfx;
+    [SerializeField] private AudioClip selectUnitSfx;
+    private AudioManager _audioManager;
+
     private void Awake()
     {
         ServiceLocator.Current.Get<UnitManager>().Controller = this;
@@ -41,6 +47,7 @@ public class UnitController : MonoBehaviour
         }
 
         abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
+        _audioManager = ServiceLocator.Current.Get<AudioManager>();
     }
 
     private void Update()
@@ -112,6 +119,7 @@ public class UnitController : MonoBehaviour
         if (selectedUnit == null)
         {
             SelectUnit(unit);
+            _audioManager.PlaySound(selectUnitSfx);
         }
         else if (abilityController.isAbilitySelected) // &&hitCollider.CompareTag("Enemy")
         {
@@ -196,10 +204,13 @@ public class UnitController : MonoBehaviour
                     damage *= selectedUnit.playerData.elementType.AttackWithThisElement(target.playerData.elementType);
                     damage = Mathf.Max(damage, 1);
                     target.GetComponent<Health>().TakeDamage((int)damage);
+                    
+                    _audioManager.PlaySound(damageSfx);
                 }
                 else
                 {
                     target.GetComponent<Health>().TakeHeal(selectedAbility.damage);
+                    _audioManager.PlaySound(healSfx);
                 }
             }
             else
