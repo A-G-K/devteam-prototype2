@@ -1041,6 +1041,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 177144592870164908, guid: 0fca40b91a0652a2b92344720ea50063, type: 3}
+      propertyPath: abilityCellSprite
+      value: 
+      objectReference: {fileID: -8142919628054546254, guid: ae1640b1c418d56d5a66abd51593129f, type: 3}
     - target: {fileID: 177144594573968652, guid: 0fca40b91a0652a2b92344720ea50063, type: 3}
       propertyPath: m_Name
       value: UnitController

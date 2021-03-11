@@ -203,13 +203,11 @@ public class UnitController : MonoBehaviour
         
             if (distance <= selectedAbility.range)
             {
-                // if (selectedAbility.Description.Contains("+1")) 
-                // {
-                //     target.AddToken(selectedAbility.element);
-                    
-
-
-                // } else {
+                 if (selectedAbility.Description.Contains("+1")) 
+                 {
+                     target.AddToken(selectedAbility.element);
+    
+                 } else {
                     
                     if (damage > 0)
                     {
@@ -219,17 +217,18 @@ public class UnitController : MonoBehaviour
                         
                         _audioManager.PlaySound(damageSfx);
                         
-                        UpdateTokens(selectedAbility.elementalCost);
                     }
                     else
                     {
                         Debug.Log("cheff2");
                         target.GetComponent<Health>().TakeHeal(selectedAbility.damage);
                         _audioManager.PlaySound(healSfx);
-                        UpdateTokens(selectedAbility.elementalCost);
 
                     }
-                //}
+                }
+
+                UpdateTokens(selectedAbility.elementalCost);
+
             }
            
             //     {

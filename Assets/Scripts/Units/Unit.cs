@@ -49,7 +49,7 @@ public class Unit : MonoBehaviour
         heathData.MaxHealth = playerData.unit_MaxHealth;
         Debug.Log($"{playerData.unit_name} spawned!");
         
-        ResetTokens();
+        HardResetTokens();
     }
 
     private void Start()
@@ -69,6 +69,18 @@ public class Unit : MonoBehaviour
     public void AddToken(Element element) 
     {
         playerData.currentTokens.Add(element);
+    }
+
+
+//done on awake so they dont have any lingering additional tokens
+    public void HardResetTokens() 
+    {
+        playerData.currentTokens.Clear();
+
+        for (int i = 0; i < playerData.unit_StartElementalToken; i++)
+        {
+            playerData.currentTokens.Add(playerData.elementType);
+        }
     }
 
     public void ResetTokens()
