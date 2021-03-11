@@ -75,6 +75,7 @@ public class TurnController : MonoBehaviour
     public void ChangeTurn()
     {
         isChangingTurn = true;
+        
 
         // UI CHANGES
         if (CurrentTurn == Turn.Player) 
@@ -86,7 +87,7 @@ public class TurnController : MonoBehaviour
             txtButtonText.text = "WAIT FOR ENEMY'S TURN";
             btnEndTurn.enabled = false;
             unitController.enabled = false;
-            // StartCoroutine(DelayAndChangeTurn()); // for debugging
+             StartCoroutine(DelayAndChangeTurn()); // for debugging
             
             EnemyTurn.Raise();
         } 
