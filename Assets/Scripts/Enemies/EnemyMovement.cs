@@ -1,17 +1,21 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Services;
 using UnityEngine;
 using Vector2IntExtension;
 
 
+[RequireComponent(typeof(UnitMover))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private int movementPoints = 3;
 
     private UnitController unitController;
     private GridController gridController;
+    private UnitMover unitMover;
     
     public int CurrentMovementPoints { get; set; }
     public Vector2Int CurrentCell => (Vector2Int) gridController.Grid.WorldToCell(transform.position);
@@ -25,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
+        unitMover = GetComponent<UnitMover>();
         SnapToCurrentCell();
     }
 
@@ -35,20 +40,20 @@ public class EnemyMovement : MonoBehaviour
 
     public void SnapToCurrentCell()
     {
-        MoveTo(CurrentCell);
+        InstantlyMoveTo(CurrentCell);
     }
 
-    public void MoveTo(Vector2Int cell)
+    public void InstantlyMoveTo(Vector2Int targetCell)
     {
-        Vector2 finalPos = gridController.Grid.CellToWorld((Vector3Int) cell) + gridController.Grid.cellSize / 2f;
+        Vector2 finalPos = gridController.Grid.CellToWorld((Vector3Int) targetCell) + gridController.Grid.cellSize / 2f;
         transform.position = finalPos;
     }
 
-    public void MoveTowards(Vector2Int targetCell)
+    public async Task MoveTo(Vector2Int targetCell)
     {
-        MoveTo(FindClosestCellTowards(targetCell));
+        await unitMover.MoveTo(targetCell);
     }
-    
+
     public Vector2Int TowardsNearestPlayerUnit()
     {
         IEnumerable<PlayerUnit> units = unitController.AllPlayerUnits;

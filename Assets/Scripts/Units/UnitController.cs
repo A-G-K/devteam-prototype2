@@ -154,7 +154,7 @@ public class UnitController : MonoBehaviour
         }
     }
 
-    private void MoveSelectedUnitTo(Vector2 targetPos)
+    private async void MoveSelectedUnitTo(Vector2 targetPos)
     {
         if (selectedPlayerUnit == null) return;
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7489259329014750349}
   - component: {fileID: 9133284140114923964}
   - component: {fileID: 6313966494738316136}
+  - component: {fileID: 404856708765688091}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -75,6 +76,20 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &404856708765688091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133284140114923965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f484e5afa9fa4836a623a02e85227562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  movementAnimator: {fileID: 6156098458619813583}
 --- !u!1 &9133284141742814751
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,6 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9133284141742814750}
   - component: {fileID: 9133284141742814745}
+  - component: {fileID: 6156098458619813583}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -157,3 +173,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6156098458619813583
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9133284141742814751}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
