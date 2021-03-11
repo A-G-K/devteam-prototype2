@@ -49,7 +49,7 @@ public class TokensUI : MonoBehaviour
 
     private void ShowTokens()
     {
-        var tokens = _unitManager.Controller.SelectedUnit.playerData.currentTokens;
+        var tokens = _unitManager.Controller.SelectedPlayerUnit.playerData.currentTokens;
         foreach (var token in tokens)
         {
             var go = Instantiate(tokensPrefab, transform);

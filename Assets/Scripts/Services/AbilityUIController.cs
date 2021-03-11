@@ -29,7 +29,7 @@ namespace Services
         
         public void OnPlayerUnitSelect()
         {
-            _selectedUnitData = _unitManager.Controller.SelectedUnit.playerData;
+            _selectedUnitData = _unitManager.Controller.SelectedPlayerUnit.playerData;
             if (transform.childCount > 0)
             {
                 ClearAbilities();

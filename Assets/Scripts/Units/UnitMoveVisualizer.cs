@@ -38,9 +38,9 @@ public class UnitMoveVisualizer : MonoBehaviour
     {
         visualTilemap.SetTile((Vector3Int) unitController.SelectedUnitCell, selectedTile);
 
-        if (unitController.SelectedUnit.CanMove)
+        if (unitController.SelectedPlayerUnit.CanMove)
         {
-            HighlightValidTiles(unitController.SelectedUnit.CurrentMovementPoints, validTile);
+            HighlightValidTiles(unitController.SelectedPlayerUnit.CurrentMovementPoints, validTile);
         }
     }
 

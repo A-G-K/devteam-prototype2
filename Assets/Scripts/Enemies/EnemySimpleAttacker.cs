@@ -18,11 +18,11 @@ public class EnemySimpleAttacker : MonoBehaviour
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
     }
 
-    public void AttackEnemy(Unit playerUnit)
+    public void AttackPlayer(PlayerUnit playerPlayerUnit)
     {
         // TODO sprite attack animation, sounds or whatever
 
-        Health unitHealth = playerUnit.GetComponent<Health>();
+        Health unitHealth = playerPlayerUnit.GetComponent<Health>();
         unitHealth.TakeDamage(attackDamage);
     }
 }

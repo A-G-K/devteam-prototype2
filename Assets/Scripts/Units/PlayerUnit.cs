@@ -12,7 +12,7 @@ public enum elementType
     Earth
 }
 
-public class Unit : MonoBehaviour
+public class PlayerUnit : MonoBehaviour, IUnit
 {   
 
     public PlayerData playerData;
@@ -22,6 +22,8 @@ public class Unit : MonoBehaviour
     public Health heathData;
     private int movementPoints;
 
+    public Health Health => heathData;
+    public Element Element => elementType;
     public int CurrentMovementPoints { get;  set; }
     public int ActionCount { get; set; }
     public bool CanMove => ActionCount > 0;

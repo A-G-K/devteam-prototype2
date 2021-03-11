@@ -93,7 +93,7 @@ public class DamageAbility : MonoBehaviour, IPointerDownHandler
     private void OnEnable()
     {
         UnitController unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
-        PlayerData playerData = unitController.SelectedUnit.playerData;
+        PlayerData playerData = unitController.SelectedPlayerUnit.playerData;
         
         abilityNameText.text = _abilityStats.name;
         descriptionText.text = _abilityStats.Description;

@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 
-public class KnightEnemy : MonoBehaviour, IEnemy
+public class KnightEnemy : MonoBehaviour, IEnemyBehaviour
 {
     private EnemyController enemyController;
     private EnemyMovement enemyMovement;
@@ -20,13 +20,13 @@ public class KnightEnemy : MonoBehaviour, IEnemy
     public void ActOnTurn()
     {
         enemyMovement.MoveTo(enemyMovement.TowardsNearestPlayerUnit());
-        IEnumerable<Unit> nearbyPlayerUnits = enemyMovement.GetNearbyPlayerUnits();
-        Unit anyPlayerUnit = nearbyPlayerUnits.FirstOrDefault();
+        IEnumerable<PlayerUnit> nearbyPlayerUnits = enemyMovement.GetNearbyPlayerUnits();
+        PlayerUnit anyPlayerPlayerUnit = nearbyPlayerUnits.FirstOrDefault();
 
         // This means the enemy is next to the player unit
-        if (anyPlayerUnit != null)
+        if (anyPlayerPlayerUnit != null)
         {
-            enemyAttacker.AttackEnemy(anyPlayerUnit);
+            enemyAttacker.AttackPlayer(anyPlayerPlayerUnit);
         }
         
         enemyController.PassNextEnemyTurn();
