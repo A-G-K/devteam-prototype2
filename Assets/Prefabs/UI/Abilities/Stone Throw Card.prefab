@@ -361,7 +361,7 @@ MonoBehaviour:
   m_text: Deal 4 damage
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
-  m_sharedMaterial: {fileID: -964113536500315323, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
+  m_sharedMaterial: {fileID: 5716657713678307861, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_text: Fireball
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
-  m_sharedMaterial: {fileID: -964113536500315323, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
+  m_sharedMaterial: {fileID: 5716657713678307861, guid: 0015794c497ed574ebf7632435a7fef3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -669,8 +669,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

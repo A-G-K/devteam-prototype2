@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb0fa88fec64cdcbbf47486761724f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  validCellSprite: {fileID: 7482667652216324306, guid: f8545e5a0da6b26479be460ab8ac314a, type: 3}
-  selectedCellSprite: {fileID: 7482667652216324306, guid: f8545e5a0da6b26479be460ab8ac314a, type: 3}
-  abilityCellSprite: {fileID: 0}
+  validTile: {fileID: 11400000, guid: 7b8cb455220f9b9dba6b5f715896f2f2, type: 2}
+  selectedTile: {fileID: 11400000, guid: 08328393494366fb2a2135d20e09a0d3, type: 2}
+  abilityTile: {fileID: 11400000, guid: 2e4987eec25fd07d6bdeb72acaa0506d, type: 2}
 --- !u!114 &177144592870164899
 MonoBehaviour:
   m_ObjectHideFlags: 0

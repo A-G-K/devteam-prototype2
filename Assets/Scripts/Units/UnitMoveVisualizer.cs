@@ -8,17 +8,14 @@ using Vector2IntExtension;
 
 public class UnitMoveVisualizer : MonoBehaviour
 {
-    [SerializeField] private Sprite validCellSprite;
-    [SerializeField] private Sprite selectedCellSprite;
-    [SerializeField] private Sprite abilityCellSprite;
+    [SerializeField] private TileBase validTile;
+    [SerializeField] private TileBase selectedTile;
+    [SerializeField] private TileBase abilityTile;
     
     private Tilemap visualTilemap;
     private Grid grid;
     private UnitController unitController;
     private GridController gridController;
-    private Tile validTile;
-    private Tile selectedTile;
-    private Tile validAbilityCell;
     private AbilityController abilityController;
     private UnitManager unitManager;
 
@@ -35,24 +32,15 @@ public class UnitMoveVisualizer : MonoBehaviour
         abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
 
         visualTilemap = gridController.VisualTilemap;
-
-        validTile = ScriptableObject.CreateInstance<Tile>();
-        validTile.sprite = validCellSprite;
-
-        selectedTile = ScriptableObject.CreateInstance<Tile>();
-        selectedTile.sprite = selectedCellSprite;
-
-        validAbilityCell = ScriptableObject.CreateInstance<Tile>();
-        validAbilityCell.sprite = abilityCellSprite;
     }
 
     public void OnUnitSelected()
     {
         visualTilemap.SetTile((Vector3Int) unitController.SelectedUnitCell, selectedTile);
 
-        if (unitController.SelectedUnit.CanMove)
+        if (unitController.SelectedPlayerUnit.CanMove)
         {
-            HighlightValidTiles(unitController.SelectedUnit.CurrentMovementPoints, validTile);
+            HighlightValidTiles(unitController.SelectedPlayerUnit.CurrentMovementPoints, validTile);
         }
     }
 
@@ -64,12 +52,12 @@ public class UnitMoveVisualizer : MonoBehaviour
     public void HighlightAbilityRange(int range) 
     {
         visualTilemap.ClearAllTiles();
-        HighlightValidTiles(range, validAbilityCell);
+        HighlightValidTiles(range, abilityTile);
     } 
 
 
     
-    private void HighlightValidTiles(int range, Tile tileType)
+    private void HighlightValidTiles(int range, TileBase tileType)
     {
         foreach (Vector2Int cell in 
             // Vector2IntUtils.GetNearbyCells(unitController.SelectedUnitCell, unitController.SelectedUnit.CurrentMovementPoints))

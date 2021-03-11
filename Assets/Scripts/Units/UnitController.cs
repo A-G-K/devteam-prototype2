@@ -12,15 +12,15 @@ public class UnitController : MonoBehaviour
     [SerializeField] private GameEvent selectUnitEvent;
     [SerializeField] private GameEvent deselectUnitEvent;
 
-    private Unit selectedUnit;
+    private PlayerUnit selectedPlayerUnit;
     private GridController gridController;
     private Grid grid;
 
-    public List<Unit> allPlayerUnits = new List<Unit>();
-    public Unit SelectedUnit => selectedUnit;
+    public List<PlayerUnit> allPlayerUnits = new List<PlayerUnit>();
+    public PlayerUnit SelectedPlayerUnit => selectedPlayerUnit;
     public int ActionCountPerTurn => actionCountPerTurn;
-    public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
-    public IEnumerable<Unit> AllPlayerUnits => allPlayerUnits.AsReadOnly();
+    public Vector2Int SelectedUnitCell => (Vector2Int) grid.WorldToCell(selectedPlayerUnit.transform.position);
+    public IEnumerable<PlayerUnit> AllPlayerUnits => allPlayerUnits.AsReadOnly();
 
     private AbilityController abilityController;
 
@@ -46,7 +46,7 @@ public class UnitController : MonoBehaviour
 
         foreach (GameObject unit in tempUnits)
         {
-            allPlayerUnits.Add(unit.gameObject.GetComponent<Unit>());
+            allPlayerUnits.Add(unit.gameObject.GetComponent<PlayerUnit>());
         }
 
         abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
@@ -61,7 +61,7 @@ public class UnitController : MonoBehaviour
     /// <summary>
     /// Get a player unit given a position in the world, returns null otherwise if no unit is found.
     /// </summary>
-    public Unit GetUnitAt(Vector2 pos)
+    public PlayerUnit GetUnitAt(Vector2 pos)
     {
         return GetUnitAt((Vector2Int) grid.WorldToCell(pos));
     }
@@ -69,9 +69,9 @@ public class UnitController : MonoBehaviour
     /// <summary>
     /// Get a player unit given a cell, returns null otherwise if no unit is found.
     /// </summary>
-    public Unit GetUnitAt(Vector2Int cell)
+    public PlayerUnit GetUnitAt(Vector2Int cell)
     {
-        foreach (Unit unit in AllPlayerUnits)
+        foreach (PlayerUnit unit in AllPlayerUnits)
         {
             if (unit.CurrentCell == cell)
             {
@@ -97,7 +97,7 @@ public class UnitController : MonoBehaviour
 
             if (hitCollider != null && hitCollider.CompareTag("Unit"))
             {
-                Unit hitUnit = hitCollider.GetComponent<Unit>();
+                IUnit hitUnit = hitCollider.GetComponent<IUnit>();
 
                 if (hitUnit != null)
                 {
@@ -111,43 +111,44 @@ public class UnitController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Escape") && selectedUnit != null)
+        if (Input.GetButtonDown("Escape") && selectedPlayerUnit != null)
         {
-            DeselectSelectedUnit();
+            DeselectSelectedPlayerUnit();
         }
     }
 
-    private void ClickUnit(Unit unit)
+    private void ClickUnit(IUnit unit)
     {
-        if (selectedUnit == null)
+        if (unit is PlayerUnit playerUnit && selectedPlayerUnit == null)
         {
-            SelectUnit(unit);
+            SelectPlayerUnit(playerUnit);
             _audioManager.PlaySound(selectUnitSfx);
         }
         else if (abilityController.isAbilitySelected && canCast(abilityController.curSelectedAbility.elementalCost)) // &&hitCollider.CompareTag("Enemy")
         {
             AttackSelectedUnit(unit); //  TO ATTACK THE UNIT || change mouse position to the enemy unit that is going to be damaged
-        }else
+        }
+        else
         {
-            DeselectSelectedUnit();
+            DeselectSelectedPlayerUnit();
         }
     }
 
-    private void SelectUnit(Unit unit)
+    private void SelectPlayerUnit(PlayerUnit playerUnit)
     {
-        Debug.Log($"Selected {unit}");
+        Debug.Log($"Selected {playerUnit}");
 
-        selectedUnit = unit;
+        selectedPlayerUnit = playerUnit;
         selectUnitEvent.Raise();
     }
 
-    private void DeselectSelectedUnit()
+    private void DeselectSelectedPlayerUnit()
     {
-        Debug.Log($"Unselected {selectedUnit}");
+        Debug.Log($"Unselected {selectedPlayerUnit}");
 
-        if (selectedUnit != null)
+        if (selectedPlayerUnit != null)
         {
-            selectedUnit = null;
+            selectedPlayerUnit = null;
             _audioManager.PlaySound(deselectUnitSfx);
             deselectUnitEvent.Raise();
         }
@@ -155,45 +156,45 @@ public class UnitController : MonoBehaviour
 
     private void MoveSelectedUnitTo(Vector2 targetPos)
     {
-        if (selectedUnit == null) return;
+        if (selectedPlayerUnit == null) return;
 
         if (!abilityController.isAbilitySelected)
         {
-            Debug.Log($"Move {selectedUnit} towards {targetPos}");
+            Debug.Log($"Move {selectedPlayerUnit} towards {targetPos}");
 
             Vector2Int targetCellPos = (Vector2Int) grid.WorldToCell(targetPos);
-            Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
+            Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(selectedPlayerUnit.transform.position);
 
             int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
-            if (selectedUnit.CanMove && distance <= selectedUnit.CurrentMovementPoints)
+            if (selectedPlayerUnit.CanMove && distance <= selectedPlayerUnit.CurrentMovementPoints)
             {
                 // TODO Maybe we want some cool coroutine or animation here later
                 Vector2 finalPos = grid.CellToWorld(grid.WorldToCell(targetPos)) + grid.cellSize / 2f;
-                selectedUnit.transform.position = finalPos;
-                selectedUnit.CurrentMovementPoints -= distance;
-                selectedUnit.ActionCount--;
+                selectedPlayerUnit.transform.position = finalPos;
+                selectedPlayerUnit.CurrentMovementPoints -= distance;
+                selectedPlayerUnit.ActionCount--;
 
                 Debug.Log($"Move to final pos {finalPos}");
             }
             else
             {
-                Debug.Log($"Can't move unit, lacking {distance - selectedUnit.CurrentMovementPoints} movement points");
+                Debug.Log($"Can't move unit, lacking {distance - selectedPlayerUnit.CurrentMovementPoints} movement points");
             }
 
             // Unselect the unit at the end
-            DeselectSelectedUnit();
+            DeselectSelectedPlayerUnit();
         }
     }
 
-    private void AttackSelectedUnit(Unit target) // SET THE NEW PARAMETER FOR THIS METHOD TO BE THE ENEMY UNIT
+    private void AttackSelectedUnit(IUnit target) // SET THE NEW PARAMETER FOR THIS METHOD TO BE THE ENEMY UNIT
     {
         Debug.Log("firstest");
 
-        if (selectedUnit == null) return;
+        if (selectedPlayerUnit == null) return;
 
         Vector2Int targetCellPos = (Vector2Int) grid.WorldToCell(target.transform.position);
-        Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(selectedUnit.transform.position);
+        Vector2Int selectedUnitCellPos = (Vector2Int) grid.WorldToCell(selectedPlayerUnit.transform.position);
 
         int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
@@ -203,25 +204,26 @@ public class UnitController : MonoBehaviour
         
             if (distance <= selectedAbility.range)
             {
-                 if (selectedAbility.Description.Contains("+1")) 
-                 {
-                     target.AddToken(selectedAbility.element);
+                    if (selectedAbility.Description.Contains("+1") && target is PlayerUnit) 
+                  {
+                      target.transform.GetComponent<PlayerUnit>().AddToken(selectedAbility.element);
     
-                 } else {
-                    
+                  } 
+                  else  
+                  {
+
                     if (damage > 0)
                     {
-                        damage *= selectedUnit.playerData.elementType.AttackWithThisElement(target.playerData.elementType);
+                        damage *= selectedPlayerUnit.playerData.elementType.AttackWithThisElement(target.Element);
                         damage = Mathf.Max(damage, 1);
-                        target.GetComponent<Health>().TakeDamage((int)damage);
+                        target.Health.TakeDamage((int)damage);
                         
                         _audioManager.PlaySound(damageSfx);
                         
                     }
                     else
                     {
-                        Debug.Log("cheff2");
-                        target.GetComponent<Health>().TakeHeal(selectedAbility.damage);
+                        target.Health.TakeHeal(selectedAbility.damage);
                         _audioManager.PlaySound(healSfx);
 
                     }
@@ -252,7 +254,7 @@ public class UnitController : MonoBehaviour
             //     }
 
             //     // Unselect the unit at the end
-                  DeselectSelectedUnit();
+                  DeselectSelectedPlayerUnit();
         }
 
         void UpdateTokens(List<Element> usedTokens) 
@@ -270,11 +272,11 @@ public class UnitController : MonoBehaviour
 
             foreach(Element token in usedTokens) 
             {
-                for (int i = 0; i <= selectedUnit.playerData.currentTokens.Count -1; i++) 
+                for (int i = 0; i <= selectedPlayerUnit.playerData.currentTokens.Count -1; i++) 
                 {
-                    if (token == selectedUnit.playerData.currentTokens[i]) 
+                    if (token == selectedPlayerUnit.playerData.currentTokens[i]) 
                     {
-                        selectedUnit.playerData.currentTokens.RemoveAt(i);
+                        selectedPlayerUnit.playerData.currentTokens.RemoveAt(i);
                         break;
                     }
                 }
@@ -289,11 +291,11 @@ public class UnitController : MonoBehaviour
         {
 
             int a = 0;
-               for (int i = 0; i <= selectedUnit.playerData.currentTokens.Count -1; i++) 
+               for (int i = 0; i <= selectedPlayerUnit.playerData.currentTokens.Count -1; i++) 
             {
                foreach(Element token in usedTokens) 
                {
-                   if (token == selectedUnit.playerData.currentTokens[i]) 
+                   if (token == selectedPlayerUnit.playerData.currentTokens[i]) 
                    {
                        a++;
                        break;

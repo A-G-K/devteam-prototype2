@@ -8,11 +8,11 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float delayBetweenEnemies = 1.5f;
-    [SerializeField] private List<IEnemy> enemies = new List<IEnemy>();
+    [SerializeField] private List<IEnemyBehaviour> enemies = new List<IEnemyBehaviour>();
 
     private bool isRunningEnemyTurn;
     
-    public IEnumerable<IEnemy> Enemies => enemies.AsReadOnly();
+    public IEnumerable<IEnemyBehaviour> Enemies => enemies.AsReadOnly();
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy")
-            .Select(e => e.GetComponent<IEnemy>())
+            .Select(e => e.GetComponent<IEnemyBehaviour>())
             .Where(e => e != null)
             .ToList();
     }
@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         
-        foreach (IEnemy enemy in Enemies)
+        foreach (IEnemyBehaviour enemy in Enemies)
         {
             isRunningEnemyTurn = true;
             enemy.ActOnTurn();
@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
         
         ServiceLocator.Current.Get<TurnManager>().TurnController.EndTurnButton();
         
-        foreach (IEnemy enemy in Enemies)
+        foreach (IEnemyBehaviour enemy in Enemies)
         {
             enemy.NextTurn();
         }

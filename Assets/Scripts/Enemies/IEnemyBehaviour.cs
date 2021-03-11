@@ -1,6 +1,6 @@
 
 // We use an interface here for an extra bit of future proofing
-public interface IEnemy
+public interface IEnemyBehaviour
 {
     /// <summary>
     /// This is called when the enemy is allowed to do whatever action on their turn.

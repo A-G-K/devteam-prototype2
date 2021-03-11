@@ -23,6 +23,7 @@ MonoBehaviour:
   abilitiesList:
   - {fileID: 11400000, guid: 176431ae4c1ca074daac7dbd08c7dab5, type: 2}
   - {fileID: 11400000, guid: 4bbad337a65872c4db8101737590c32f, type: 2}
+  - {fileID: 11400000, guid: a39c4780f2151db4ea7786a6349d5cd2, type: 2}
   unit_MovementPoints: 3
   unit_StartElementalToken: 5
   startingTokens:

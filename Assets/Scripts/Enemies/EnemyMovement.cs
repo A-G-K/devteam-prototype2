@@ -51,13 +51,13 @@ public class EnemyMovement : MonoBehaviour
     
     public Vector2Int TowardsNearestPlayerUnit()
     {
-        IEnumerable<Unit> units = unitController.AllPlayerUnits;
+        IEnumerable<PlayerUnit> units = unitController.AllPlayerUnits;
         Vector2Int currentCell = CurrentCell;
-        Unit nearestUnit = units.Aggregate((leftUnit, rightUnit) => 
+        PlayerUnit nearestPlayerUnit = units.Aggregate((leftUnit, rightUnit) => 
             Vector2IntUtils.ManhattanDistance(currentCell, leftUnit.CurrentCell) < Vector2IntUtils.ManhattanDistance(currentCell, rightUnit.CurrentCell)
                 ? leftUnit : rightUnit);
         
-        return FindClosestCellTowards(nearestUnit.CurrentCell);
+        return FindClosestCellTowards(nearestPlayerUnit.CurrentCell);
     }
 
     // Example of another function in this class....
@@ -66,17 +66,17 @@ public class EnemyMovement : MonoBehaviour
     //     ...
     // }
 
-    public IEnumerable<Unit> GetNearbyPlayerUnits()
+    public IEnumerable<PlayerUnit> GetNearbyPlayerUnits()
     {
-        List<Unit> nearbyUnits = new List<Unit>(4);
+        List<PlayerUnit> nearbyUnits = new List<PlayerUnit>(4);
         
         foreach (Vector2Int neighbourCell in CurrentCell.GetNeighbouring())
         {
-            Unit unit = unitController.GetUnitAt(neighbourCell);
+            PlayerUnit playerUnit = unitController.GetUnitAt(neighbourCell);
 
-            if (unit != null)
+            if (playerUnit != null)
             {
-                nearbyUnits.Add(unit);
+                nearbyUnits.Add(playerUnit);
             }
         }
 

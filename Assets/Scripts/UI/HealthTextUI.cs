@@ -18,7 +18,7 @@ public class HealthTextUI : MonoBehaviour
 
     public void OnPlayerUnitSelect()
     {
-        _text.text = "Health: " + _unitManager.Controller.SelectedUnit.heathData.CurrentHealth;
+        _text.text = "Health: " + _unitManager.Controller.SelectedPlayerUnit.heathData.CurrentHealth;
         _text.enabled = true;
     }
 

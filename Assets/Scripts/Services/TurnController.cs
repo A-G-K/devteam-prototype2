@@ -84,7 +84,7 @@ public class TurnController : MonoBehaviour
 
             roundCounter++;
             NewRound.Raise();
-            foreach (Unit unit in unitController.allPlayerUnits) 
+            foreach (PlayerUnit unit in unitController.allPlayerUnits) 
             
             {
                 unit.NextTurn();

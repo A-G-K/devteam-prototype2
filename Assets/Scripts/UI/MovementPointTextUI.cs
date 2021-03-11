@@ -18,7 +18,7 @@ public class MovementPointTextUI : MonoBehaviour
 
     public void OnPlayerUnitSelect()
     {
-        _text.text = "MP: " + _unitManager.Controller.SelectedUnit.CurrentMovementPoints;
+        _text.text = "MP: " + _unitManager.Controller.SelectedPlayerUnit.CurrentMovementPoints;
         _text.enabled = true;
     }
 

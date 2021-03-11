@@ -41,10 +41,10 @@ public class AbilityController : MonoBehaviour
     void Update()
     {
 
-        if (unitController.SelectedUnit != null) 
+        if (unitController.SelectedPlayerUnit != null) 
         {
             int i =0;
-            foreach (var ability in unitController.SelectedUnit.playerData.abilitiesList) 
+            foreach (var ability in unitController.SelectedPlayerUnit.playerData.abilitiesList) 
             {
                 i++;
                 if (Input.inputString == i.ToString() && ability != curSelectedAbility) 

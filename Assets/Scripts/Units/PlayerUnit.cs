@@ -12,16 +12,18 @@ public enum elementType
     Earth
 }
 
-public class Unit : MonoBehaviour
+public class PlayerUnit : MonoBehaviour, IUnit
 {   
 
-    public PlayerData playerData;
+    [SerializeField] public  PlayerData playerData;
 
     [SerializeField] private GameEvent newPlayer;
 
     public Health heathData;
     private int movementPoints;
 
+    public Health Health => heathData;
+    public Element Element => elementType;
     public int CurrentMovementPoints { get;  set; }
     public int ActionCount { get; set; }
     public bool CanMove => ActionCount > 0;
@@ -44,7 +46,8 @@ public class Unit : MonoBehaviour
     
 
         CurrentMovementPoints = playerData.unit_MovementPoints;
-        spriteRenderer.color = playerData.unit_Colour;
+        // We can ignore this for now
+        // spriteRenderer.color = playerData.unit_Colour;
         elementType = playerData.elementType;
         heathData.MaxHealth = playerData.unit_MaxHealth;
         Debug.Log($"{playerData.unit_name} spawned!");
@@ -69,8 +72,10 @@ public class Unit : MonoBehaviour
     public void AddToken(Element element) 
     {
         playerData.currentTokens.Add(element);
+
     }
 
+  
 
 //done on awake so they dont have any lingering additional tokens
     public void HardResetTokens() 
