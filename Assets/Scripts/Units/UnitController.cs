@@ -186,12 +186,16 @@ public class UnitController : MonoBehaviour
         int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
         AbilityStats selectedAbility = abilityController.curSelectedAbility;
+
+        float damage = selectedAbility.damage;
         
             if (distance <= selectedAbility.range)
             {
-                if (selectedAbility.damage > 0)
+                if (damage > 0)
                 {
-                    target.GetComponent<Health>().TakeDamage(selectedAbility.damage);
+                    damage *= selectedUnit.playerData.elementType.AttackWithThisElement(target.playerData.elementType);
+                    damage = Mathf.Max(damage, 1);
+                    target.GetComponent<Health>().TakeDamage((int)damage);
                 }
                 else
                 {
