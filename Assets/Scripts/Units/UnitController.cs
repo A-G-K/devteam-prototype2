@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class UnitController : MonoBehaviour
 {
-    [SerializeField] private int actionCountPerTurn = 1;
+    [SerializeField] private int actionCountPerTurn = 0;
     [SerializeField] private GameEvent selectUnitEvent;
     [SerializeField] private GameEvent deselectUnitEvent;
 
@@ -203,24 +203,33 @@ public class UnitController : MonoBehaviour
         
             if (distance <= selectedAbility.range)
             {
-                if (damage > 0)
-                {
-                    damage *= selectedUnit.playerData.elementType.AttackWithThisElement(target.playerData.elementType);
-                    damage = Mathf.Max(damage, 1);
-                    target.GetComponent<Health>().TakeDamage((int)damage);
+                // if (selectedAbility.Description.Contains("+1")) 
+                // {
+                //     target.AddToken(selectedAbility.element);
                     
-                    _audioManager.PlaySound(damageSfx);
-                    
-                    UpdateTokens(selectedAbility.elementalCost);
-                }
-                else
-                {
-                    Debug.Log("cheff2");
-                    target.GetComponent<Health>().TakeHeal(selectedAbility.damage);
-                    _audioManager.PlaySound(healSfx);
-                    UpdateTokens(selectedAbility.elementalCost);
 
-                }
+
+                // } else {
+                    
+                    if (damage > 0)
+                    {
+                        damage *= selectedUnit.playerData.elementType.AttackWithThisElement(target.playerData.elementType);
+                        damage = Mathf.Max(damage, 1);
+                        target.GetComponent<Health>().TakeDamage((int)damage);
+                        
+                        _audioManager.PlaySound(damageSfx);
+                        
+                        UpdateTokens(selectedAbility.elementalCost);
+                    }
+                    else
+                    {
+                        Debug.Log("cheff2");
+                        target.GetComponent<Health>().TakeHeal(selectedAbility.damage);
+                        _audioManager.PlaySound(healSfx);
+                        UpdateTokens(selectedAbility.elementalCost);
+
+                    }
+                //}
             }
            
             //     {
@@ -249,17 +258,30 @@ public class UnitController : MonoBehaviour
 
         void UpdateTokens(List<Element> usedTokens) 
         {
-            for (int i = 0; i < selectedUnit.playerData.currentTokens.Count - 1; i++) 
+            // for (int i = 0; i <= selectedUnit.playerData.currentTokens.Count - 1; i++) 
+            // {
+            //    foreach(Element token in usedTokens) 
+            //    {
+            //            if (token == selectedUnit.playerData.currentTokens[i]) 
+            //        {
+            //            selectedUnit.playerData.currentTokens.RemoveAt(i);
+            //        }
+            //    }
+            // }
+
+            foreach(Element token in usedTokens) 
             {
-               foreach(Element token in usedTokens) 
-               {
-                   if (token == selectedUnit.playerData.currentTokens[i]) 
-                   {
-                       selectedUnit.playerData.currentTokens.RemoveAt(i);
-                       
-                   }
-               }
+                for (int i = 0; i <= selectedUnit.playerData.currentTokens.Count -1; i++) 
+                {
+                    if (token == selectedUnit.playerData.currentTokens[i]) 
+                    {
+                        selectedUnit.playerData.currentTokens.RemoveAt(i);
+                        break;
+                    }
+                }
             }
+
+            
 
 
         }

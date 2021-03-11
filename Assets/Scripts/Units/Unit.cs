@@ -66,6 +66,11 @@ public class Unit : MonoBehaviour
         ResetTokens();
     }
 
+    public void AddToken(Element element) 
+    {
+        playerData.currentTokens.Add(element);
+    }
+
     public void ResetTokens()
     {
 
