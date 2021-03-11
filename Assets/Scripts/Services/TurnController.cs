@@ -22,13 +22,6 @@ public class TurnController : MonoBehaviour
 
     [SerializeField] private GameEvent PlayerTurn;
 
-    [SerializeField] private Text txtTurnIndicator;
-
-    [SerializeField] private Text txtButtonText;
-
-    [SerializeField] private Button btnEndTurn;
-
-
     public Turn CurrentTurn {get; set;}
 
     public int roundCounter;
@@ -36,6 +29,7 @@ public class TurnController : MonoBehaviour
     private UnitController unitController;
     private bool isChangingTurn;
 
+    private TurnManager _turnManager;
     public void EndTurnButton()
     {
         if (!isChangingTurn)
@@ -64,40 +58,28 @@ public class TurnController : MonoBehaviour
     private void Start() 
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
-        txtTurnIndicator.color = new Color32(0,255,0,255);
-        txtTurnIndicator.text = "PLAYER'S TURN";
-        txtButtonText.text = "END TURN";
+        _turnManager = ServiceLocator.Current.Get<TurnManager>();
     }
-
-
-
 
     public void ChangeTurn()
     {
         isChangingTurn = true;
+        
 
         // UI CHANGES
         if (CurrentTurn == Turn.Player) 
         {
             CurrentTurn = Turn.Enemy;
-            txtTurnIndicator.color = new Color32(255,0,0,255);
-            txtTurnIndicator.text = "ENEMY'S TURN";
-            txtButtonText.fontSize = txtButtonText.fontSize / 2;
-            txtButtonText.text = "WAIT FOR ENEMY'S TURN";
-            btnEndTurn.enabled = false;
-            unitController.enabled = false;
-            // StartCoroutine(DelayAndChangeTurn()); // for debugging
             
+            unitController.enabled = false;
+             StartCoroutine(DelayAndChangeTurn()); // for debugging
+            _turnManager.ChangeToEnemyTurn();
             EnemyTurn.Raise();
         } 
         else 
         {
             CurrentTurn = Turn.Player;
-            txtTurnIndicator.color = new Color32(0,255,0,255);
-            txtTurnIndicator.text = "PLAYER'S TURN";
-            txtButtonText.fontSize = txtButtonText.fontSize * 2;
-            txtButtonText.text = "END TURN";
-            btnEndTurn.enabled = true;
+            
             unitController.enabled = true;
 
             roundCounter++;
@@ -108,6 +90,7 @@ public class TurnController : MonoBehaviour
                 unit.NextTurn();
             }
 
+            _turnManager.ChangeToPlayerTurn();
             PlayerTurn.Raise();
         }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b807d97637559c64faf6654a2b77aac6, type: 3}
   m_Name: Earth
   m_EditorClassIdentifier: 
-  icon: {fileID: -1673060928575230919, guid: 44e84488212491047926adc0141f69ac, type: 3}
+  icon: {fileID: 4824613630716077641, guid: 00312ebfaae5dea4981057ca0ef06518, type: 3}
   weakAgainstElements:
   - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
   strongAgainstElements:

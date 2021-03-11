@@ -13,5 +13,7 @@ public class PlayerData : UnitData
 
     public int unit_StartElementalToken;
 
+    public List<Element> startingTokens;
     public List<Element> currentTokens;
+    
 }

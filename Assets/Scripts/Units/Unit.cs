@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using RoboRyanTron.Unite2017.Events;
 using Services;
+using System.Collections.Generic;
 
 public enum elementType 
 {
@@ -67,7 +68,32 @@ public class Unit : MonoBehaviour
 
     public void ResetTokens()
     {
-        playerData.currentTokens.Clear();
+
+        List<Element> resetTokens = new List<Element>();
+
+      
+          foreach(Element element in playerData.currentTokens) 
+          {
+              if (element == playerData.elementType) 
+              {
+                 resetTokens.Add(element);
+              }
+          }
+      
+
+       for (int i =0; i < playerData.currentTokens.Count - 1; i++) 
+      {
+          foreach(Element element in resetTokens) 
+          {
+              if (element == playerData.currentTokens[i]) 
+              {
+                  playerData.currentTokens.RemoveAt(i);
+                  
+              }
+          }
+      }
+
+        //playerData.currentTokens.Clear();
         
         for (int i = 0; i < playerData.unit_StartElementalToken; i++)
         {

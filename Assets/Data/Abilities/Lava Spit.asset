@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d13a8bd90be4744e83bc47ebe8b37d5, type: 3}
+  m_Name: Lava Spit
+  m_EditorClassIdentifier: 
+  abilityPrefab: {fileID: 7212312520419096417, guid: 2f592e376b96645449dbb214be67e331, type: 3}
+  Description: 'Deals 4 damage
+
+    Range: 2 Radius: 1'
+  element: {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  icon: {fileID: -3191233411377805666, guid: 00312ebfaae5dea4981057ca0ef06518, type: 3}
+  damage: 4
+  range: 2
+  radius: 1
+  elementalCost:
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  - {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}

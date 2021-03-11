@@ -18,6 +18,7 @@ public class ServiceLocator
         Register(new UnitManager());
         Register(new TurnManager());
         Register(new EnemyManager());
+        Register(new AudioManager());
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]

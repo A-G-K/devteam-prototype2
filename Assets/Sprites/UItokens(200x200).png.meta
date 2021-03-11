@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: 00312ebfaae5dea4981057ca0ef06518
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3191233411377805666
+    second: UItokens(200x200)_0
+  - first:
+      213: -4758454011143832751
+    second: UItokens(200x200)_1
+  - first:
+      213: -6576585743227997876
+    second: UItokens(200x200)_2
+  - first:
+      213: -2403909022129824189
+    second: UItokens(200x200)_3
+  - first:
+      213: -7239326426733147994
+    second: UItokens(200x200)_4
+  - first:
+      213: -4589024735596290541
+    second: UItokens(200x200)_5
+  - first:
+      213: 522489184119000282
+    second: UItokens(200x200)_6
+  - first:
+      213: -6490758781843842557
+    second: UItokens(200x200)_7
+  - first:
+      213: 7487128316243331258
+    second: UItokens(200x200)_8
+  - first:
+      213: 4231214478375137385
+    second: UItokens(200x200)_9
+  - first:
+      213: 238735758320914641
+    second: UItokens(200x200)_10
+  - first:
+      213: -981999781372960731
+    second: UItokens(200x200)_11
+  - first:
+      213: -5225308585116214227
+    second: UItokens(200x200)_12
+  - first:
+      213: 852705765755546363
+    second: UItokens(200x200)_13
+  - first:
+      213: 3873852178106636125
+    second: UItokens(200x200)_14
+  - first:
+      213: -3212970675101442505
+    second: UItokens(200x200)_15
+  - first:
+      213: -6208928313513131403
+    second: UItokens(200x200)_16
+  - first:
+      213: 1349670510436087199
+    second: UItokens(200x200)_17
+  - first:
+      213: 2796935263137138938
+    second: UItokens(200x200)_18
+  - first:
+      213: 3505659998594853087
+    second: UItokens(200x200)_19
+  - first:
+      213: 6926927035245231430
+    second: UItokens(200x200)_20
+  - first:
+      213: 4824613630716077641
+    second: UItokens(200x200)_21
+  - first:
+      213: 6641532932142512015
+    second: UItokens(200x200)_22
+  - first:
+      213: 6777714513605628904
+    second: UItokens(200x200)_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UItokens(200x200)_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 605
+        width: 157
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96c777ce1676b3d0800000000000000
+      internalID: -3191233411377805666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_1
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 604
+        width: 157
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b3db9c94396fdb0800000000000000
+      internalID: -4758454011143832751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_2
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 604
+        width: 158
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c413ffb5c164bb4a0800000000000000
+      internalID: -6576585743227997876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_3
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 605
+        width: 157
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34e58971b7993aed0800000000000000
+      internalID: -2403909022129824189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_4
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 604
+        width: 157
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8097178feb88b90800000000000000
+      internalID: -7239326426733147994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 604
+        width: 158
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e5d4111528050c0800000000000000
+      internalID: -4589024735596290541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 405
+        width: 157
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc856a0521404700800000000000000
+      internalID: 522489184119000282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_7
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 404
+        width: 157
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a537507413ce5a0800000000000000
+      internalID: -6490758781843842557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 404
+        width: 158
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab8c37df88f97e760800000000000000
+      internalID: 7487128316243331258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_9
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 405
+        width: 157
+        height: 158
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9603a00762b48ba30800000000000000
+      internalID: 4231214478375137385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_10
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 404
+        width: 157
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d0d6e548e8205300800000000000000
+      internalID: 238735758320914641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_11
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 404
+        width: 158
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520e0c5d66c3f52f0800000000000000
+      internalID: -981999781372960731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 155
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c5956d689fb77b0800000000000000
+      internalID: -5225308585116214227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_13
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 201
+        width: 154
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa69c9406b65db00800000000000000
+      internalID: 852705765755546363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_14
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 201
+        width: 155
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d575b6c0800b2c530800000000000000
+      internalID: 3873852178106636125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_15
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 200
+        width: 155
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ed4dca13c3963d0800000000000000
+      internalID: -3212970675101442505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_16
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 201
+        width: 154
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5724f2d589475d9a0800000000000000
+      internalID: -6208928313513131403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_17
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 201
+        width: 155
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95fc5aad2efab210800000000000000
+      internalID: 1349670510436087199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 155
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af88d039dc5b0d620800000000000000
+      internalID: 2796935263137138938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_19
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1
+        width: 154
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd8ea87e13b96a030800000000000000
+      internalID: 3505659998594853087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_20
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 1
+        width: 155
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d77d82073612060800000000000000
+      internalID: 6926927035245231430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_21
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 155
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946e655098874f240800000000000000
+      internalID: 4824613630716077641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_22
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 1
+        width: 154
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87b96073077b2c50800000000000000
+      internalID: 6641532932142512015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UItokens(200x200)_23
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 1
+        width: 155
+        height: 164
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e31974b0774f0e50800000000000000
+      internalID: 6777714513605628904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

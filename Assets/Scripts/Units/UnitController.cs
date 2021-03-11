@@ -24,6 +24,13 @@ public class UnitController : MonoBehaviour
 
     private AbilityController abilityController;
 
+    [Header("Audio stuff")]
+    [SerializeField] private AudioClip damageSfx;
+    [SerializeField] private AudioClip healSfx;
+    [SerializeField] private AudioClip selectUnitSfx;
+    [SerializeField] private AudioClip deselectUnitSfx;
+    private AudioManager _audioManager;
+
     private void Awake()
     {
         ServiceLocator.Current.Get<UnitManager>().Controller = this;
@@ -43,6 +50,7 @@ public class UnitController : MonoBehaviour
         }
 
         abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
+        _audioManager = ServiceLocator.Current.Get<AudioManager>();
     }
 
     private void Update()
@@ -114,8 +122,9 @@ public class UnitController : MonoBehaviour
         if (selectedUnit == null)
         {
             SelectUnit(unit);
+            _audioManager.PlaySound(selectUnitSfx);
         }
-        else if (abilityController.isAbilitySelected) // &&hitCollider.CompareTag("Enemy")
+        else if (abilityController.isAbilitySelected && canCast(abilityController.curSelectedAbility.elementalCost)) // &&hitCollider.CompareTag("Enemy")
         {
             AttackSelectedUnit(unit); //  TO ATTACK THE UNIT || change mouse position to the enemy unit that is going to be damaged
         }else
@@ -139,6 +148,7 @@ public class UnitController : MonoBehaviour
         if (selectedUnit != null)
         {
             selectedUnit = null;
+            _audioManager.PlaySound(deselectUnitSfx);
             deselectUnitEvent.Raise();
         }
     }
@@ -188,23 +198,31 @@ public class UnitController : MonoBehaviour
         int distance = Vector2IntUtils.ManhattanDistance(targetCellPos, selectedUnitCellPos);
 
         AbilityStats selectedAbility = abilityController.curSelectedAbility;
+
+        float damage = selectedAbility.damage;
         
             if (distance <= selectedAbility.range)
             {
-                if (selectedAbility.damage > 0)
+                if (damage > 0)
                 {
-                    target.GetComponent<Health>().TakeDamage(selectedAbility.damage);
+                    damage *= selectedUnit.playerData.elementType.AttackWithThisElement(target.playerData.elementType);
+                    damage = Mathf.Max(damage, 1);
+                    target.GetComponent<Health>().TakeDamage((int)damage);
+                    
+                    _audioManager.PlaySound(damageSfx);
+                    
+                    UpdateTokens(selectedAbility.elementalCost);
                 }
                 else
                 {
+                    Debug.Log("cheff2");
                     target.GetComponent<Health>().TakeHeal(selectedAbility.damage);
+                    _audioManager.PlaySound(healSfx);
+                    UpdateTokens(selectedAbility.elementalCost);
+
                 }
             }
-            else
-            {
-                Debug.Log("eeEASDASD");
-                DeselectSelectedUnit();
-            }
+           
             //     {
 
 
@@ -226,6 +244,48 @@ public class UnitController : MonoBehaviour
             //     }
 
             //     // Unselect the unit at the end
-            //      DeselectSelectedUnit();
+                  DeselectSelectedUnit();
+        }
+
+        void UpdateTokens(List<Element> usedTokens) 
+        {
+            for (int i = 0; i < selectedUnit.playerData.currentTokens.Count - 1; i++) 
+            {
+               foreach(Element token in usedTokens) 
+               {
+                   if (token == selectedUnit.playerData.currentTokens[i]) 
+                   {
+                       selectedUnit.playerData.currentTokens.RemoveAt(i);
+                       
+                   }
+               }
+            }
+
+
+        }
+
+        bool canCast(List<Element> usedTokens) 
+        {
+
+            int a = 0;
+               for (int i = 0; i <= selectedUnit.playerData.currentTokens.Count -1; i++) 
+            {
+               foreach(Element token in usedTokens) 
+               {
+                   if (token == selectedUnit.playerData.currentTokens[i]) 
+                   {
+                       a++;
+                       break;
+                       
+                   }
+               }
+            }
+
+            if (a >= usedTokens.Count) 
+            {
+                return true;
+            }
+
+            return false;
         }
 }

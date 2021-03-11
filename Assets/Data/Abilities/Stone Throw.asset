@@ -17,7 +17,7 @@ MonoBehaviour:
 
     Range: 2 Radius: 2'
   element: {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
-  icon: {fileID: -1673060928575230919, guid: 44e84488212491047926adc0141f69ac, type: 3}
+  icon: {fileID: 4231214478375137385, guid: 00312ebfaae5dea4981057ca0ef06518, type: 3}
   damage: 1
   range: 2
   radius: 2
