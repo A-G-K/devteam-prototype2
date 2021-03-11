@@ -29,6 +29,7 @@ public class UnitController : MonoBehaviour
     [SerializeField] private AudioClip damageSfx;
     [SerializeField] private AudioClip healSfx;
     [SerializeField] private AudioClip selectUnitSfx;
+    [SerializeField] private AudioClip deselectUnitSfx;
     private AudioManager _audioManager;
 
     private void Awake()
@@ -145,6 +146,7 @@ public class UnitController : MonoBehaviour
         if (selectedUnit != null)
         {
             selectedUnit = null;
+            _audioManager.PlaySound(deselectUnitSfx);
             deselectUnitEvent.Raise();
         }
     }
