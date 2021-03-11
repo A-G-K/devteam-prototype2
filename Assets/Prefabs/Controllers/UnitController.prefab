@@ -152,3 +152,7 @@ MonoBehaviour:
   selectUnitEvent: {fileID: 11400000, guid: f33ee4753b69fce4f9a25dcab3d52301, type: 2}
   deselectUnitEvent: {fileID: 11400000, guid: 2419691424e2865478b478267760b336, type: 2}
   allPlayerUnits: []
+  damageSfx: {fileID: 8300000, guid: b86399a4ac27cb943b079639dd8431d8, type: 3}
+  healSfx: {fileID: 8300000, guid: 4141c70382ce5904d8ee0e2906f254bb, type: 3}
+  selectUnitSfx: {fileID: 8300000, guid: 877348e3ae84555458b43205c0e05d95, type: 3}
+  deselectUnitSfx: {fileID: 8300000, guid: 8b65290db3efe3f4aa2894857246a0d9, type: 3}
