@@ -51,9 +51,8 @@ MonoBehaviour:
   NewRound: {fileID: 11400000, guid: f5ec72745de9e9e4db21ef493edbc7d6, type: 2}
   EnemyTurn: {fileID: 11400000, guid: f3cec636106341aaca6a3f9441e01cb4, type: 2}
   PlayerTurn: {fileID: 11400000, guid: 4c93b1fdd5beead40b795bdff203f691, type: 2}
-  txtTurnIndicator: {fileID: 0}
-  txtButtonText: {fileID: 0}
-  btnEndTurn: {fileID: 0}
+  LoseGame: {fileID: 11400000, guid: 0aa049ceafe7a7541ba9dcd0914aef79, type: 2}
+  WinGame: {fileID: 11400000, guid: 8d0f765b4d262fa44a6fe37e09f0a93a, type: 2}
   roundCounter: 1
 --- !u!114 &9091699866894464882
 MonoBehaviour:

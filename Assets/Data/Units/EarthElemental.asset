@@ -18,7 +18,7 @@ MonoBehaviour:
   unit_Colour:
     serializedVersion: 2
     rgba: 4278231039
-  unit_MaxHealth: 75
+  unit_MaxHealth: 16
   elementType: {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
   abilitiesList:
   - {fileID: 11400000, guid: 19b59df5af8e56544b65530a1461df13, type: 2}
@@ -29,5 +29,3 @@ MonoBehaviour:
   currentTokens:
   - {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
   - {fileID: 11400000, guid: c21961c48c0468b418bee41e0162c1e6, type: 2}
-  - {fileID: 11400000, guid: 8642fe209dbd721498074a08dd088620, type: 2}
-  - {fileID: 11400000, guid: 8642fe209dbd721498074a08dd088620, type: 2}

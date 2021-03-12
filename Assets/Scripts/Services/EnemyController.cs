@@ -21,15 +21,23 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy")
-            .Select(e => e.GetComponent<IEnemyBehaviour>())
-            .Where(e => e != null)
-            .ToList();
+        FindAllEnemy();
     }
 
     /// <summary>
     /// Enemy implementations need to call this function once the enemy is done with movement to be able to continue the turns.
     /// </summary>
+
+    public void FindAllEnemy() 
+    {
+    
+        enemies = GameObject.FindGameObjectsWithTag("Enemy")
+        .Select(e => e.GetComponent<IEnemyBehaviour>())
+            .Where(e => e != null)
+            .ToList();
+
+            Debug.Log("found");
+    }
     public void PassNextEnemyTurn()
     {
         isRunningEnemyTurn = false;

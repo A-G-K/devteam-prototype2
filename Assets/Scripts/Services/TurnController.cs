@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Services;
 using RoboRyanTron.Unite2017.Events;
@@ -22,11 +23,18 @@ public class TurnController : MonoBehaviour
 
     [SerializeField] private GameEvent PlayerTurn;
 
+    [SerializeField] private GameEvent LoseGame;
+
+        [SerializeField] private GameEvent WinGame;
+  [SerializeField] private Scene mainScene;
     public Turn CurrentTurn {get; set;}
 
     public int roundCounter;
 
+ 
+
     private UnitController unitController;
+    private EnemyController enemyController;
     private bool isChangingTurn;
 
     private TurnManager _turnManager;
@@ -55,16 +63,41 @@ public class TurnController : MonoBehaviour
         CurrentTurn = Turn.Player;
     }
 
+    void Update() 
+    {
+        // if (unitController.allPlayerUnits == null) 
+        // {
+        //     LoseGame.Raise();
+        // }
+
+        // if (enemyController.getAllEnemies() == null) 
+        // {
+        //     WinGame.Raise();
+        // } 
+    }
+
     private void Start() 
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         _turnManager = ServiceLocator.Current.Get<TurnManager>();
+        enemyController = ServiceLocator.Current.Get<EnemyManager>().Controller;
+    }
+
+    public void PlayAgain() 
+    {
+        SceneManager.LoadScene("Baby Don't Hurt Me");
+    }
+
+    public void Exit() 
+    {
+        Application.Quit();
     }
 
     public void ChangeTurn()
     {
         isChangingTurn = true;
         Turn lastTurn = CurrentTurn;
+        enemyController.FindAllEnemy();
 
         // UI CHANGES
         if (CurrentTurn == Turn.Player && !unitController.IsAnyUnitActing) 

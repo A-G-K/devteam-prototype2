@@ -33,6 +33,11 @@ public class Health : MonoBehaviour
         }
     }
 
+    public void Death() 
+    {
+        Destroy(this.gameObject);
+    }
+
     public void TakeHeal(int amount)
     {
         amount = Mathf.Abs(amount);

@@ -44,13 +44,7 @@ public class UnitController : MonoBehaviour
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
         grid = gridController.Grid;
         
-        GameObject[] tempUnits;
-        tempUnits = GameObject.FindGameObjectsWithTag("Unit");
-
-        foreach (GameObject unit in tempUnits)
-        {
-            allPlayerUnits.Add(unit.gameObject.GetComponent<PlayerUnit>());
-        }
+        
 
         abilityController = ServiceLocator.Current.Get<AbilityUIManager>().AbilityController;
         _audioManager = ServiceLocator.Current.Get<AudioManager>();
@@ -59,6 +53,30 @@ public class UnitController : MonoBehaviour
     private void Update()
     {
         HandleClick();
+    }
+
+    public void UpdateAllPlayerUnits() 
+    {
+        GameObject[] tempUnits;
+        tempUnits = GameObject.FindGameObjectsWithTag("Unit");
+
+        foreach (GameObject unit in tempUnits)
+        {
+            allPlayerUnits.Add(unit.gameObject.GetComponent<PlayerUnit>());
+        }
+    }
+
+      public List<PlayerUnit> GetAllPlayerUnits() 
+    {
+        GameObject[] tempUnits;
+        tempUnits = GameObject.FindGameObjectsWithTag("Unit");
+
+        foreach (GameObject unit in tempUnits)
+        {
+            allPlayerUnits.Add(unit.gameObject.GetComponent<PlayerUnit>());
+        }
+
+        return allPlayerUnits;
     }
 
     /// <summary>
