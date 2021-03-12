@@ -40,9 +40,13 @@ public class UnitMover : MonoBehaviour
 
     public async Task MoveTo(Vector2Int targetCell)
     {
-        Navigator navigator = new Navigator(Grid, CurrentCell);
-        List<Vector2Int> path = navigator.CalculateNavigationCells(targetCell);
-        await MoveAlongPath(path);
+        // If we already are at the desired destination, then don't do anything
+        if (CurrentCell != targetCell)
+        {
+            Navigator navigator = new Navigator(Grid, CurrentCell);
+            List<Vector2Int> path = navigator.CalculateNavigationCells(targetCell);
+            await MoveAlongPath(path);
+        }
     }
 
     private async Task MoveAlongPath(IEnumerable<Vector2Int> navigationCells)

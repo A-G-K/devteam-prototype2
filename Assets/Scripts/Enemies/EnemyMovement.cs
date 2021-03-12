@@ -85,7 +85,7 @@ public class EnemyMovement : MonoBehaviour
         List<Vector2Int> navigationCells = navigator.CalculateNavigationCells(targetCell);
 
         // Check if there is a valid path
-        if (navigationCells.Count > 0)
+        if (navigationCells.Count > 2)
         {
             return navigationCells.Skip(1).Take(CurrentMovementPoints).Last(c => c != targetCell);
         }
