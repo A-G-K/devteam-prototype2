@@ -65,7 +65,7 @@ public class EnemyMovement : MonoBehaviour
         
         foreach (Vector2Int neighbourCell in CurrentCell.GetNeighbouring())
         {
-            PlayerUnit playerUnit = unitController.GetUnitAt(neighbourCell);
+            PlayerUnit playerUnit = unitController.GetPlayerUnitAt(neighbourCell);
 
             if (playerUnit != null)
             {
@@ -79,6 +79,8 @@ public class EnemyMovement : MonoBehaviour
     private Vector2Int FindClosestCellTowards(Vector2Int targetCell)
     {
         Navigator navigator = new Navigator(gridController.Grid, CurrentCell);
+        navigator.SetMovementValidation((fromCell, toCell) => 
+            toCell == targetCell || unitController.GetUnitAt(toCell) == null);
 
         List<Vector2Int> navigationCells = navigator.CalculateNavigationCells(targetCell);
 

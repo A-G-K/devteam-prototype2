@@ -62,17 +62,45 @@ public class UnitController : MonoBehaviour
     }
 
     /// <summary>
-    /// Get a player unit given a position in the world, returns null otherwise if no unit is found.
+    /// Get any unit given a position in the world, returns null otherwise if no unit is found.
     /// </summary>
-    public PlayerUnit GetUnitAt(Vector2 pos)
+    public IUnit GetUnitAt(Vector2 pos)
     {
         return GetUnitAt((Vector2Int) grid.WorldToCell(pos));
     }
 
     /// <summary>
+    /// Get any unit given a cell, returns null otherwise if no unit is found.
+    /// </summary>
+    public IUnit GetUnitAt(Vector2Int cell)
+    {
+        Collider2D hitCollider = Physics2D.OverlapPoint(cell + (Vector2) grid.cellSize / 2f);
+
+        if (hitCollider != null)
+        {
+            IUnit hitUnit = hitCollider.GetComponent<IUnit>();
+
+            if (hitUnit != null)
+            {
+                return hitUnit;
+            }
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Get a player unit given a position in the world, returns null otherwise if no unit is found.
+    /// </summary>
+    public PlayerUnit GetPlayerUnitAt(Vector2 pos)
+    {
+        return GetPlayerUnitAt((Vector2Int) grid.WorldToCell(pos));
+    }
+
+    /// <summary>
     /// Get a player unit given a cell, returns null otherwise if no unit is found.
     /// </summary>
-    public PlayerUnit GetUnitAt(Vector2Int cell)
+    public PlayerUnit GetPlayerUnitAt(Vector2Int cell)
     {
         foreach (PlayerUnit unit in AllPlayerUnits)
         {

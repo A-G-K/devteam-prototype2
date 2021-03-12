@@ -12,11 +12,17 @@ public class Navigator
 
     private Vector2Int CurrentCell { get; }
     private Vector2 CellSize = Vector2.zero;
+    private Func<Vector2Int, Vector2Int, bool> isMovementValidFunc;
 
     public Navigator(Grid grid, Vector2Int currentCell)
     {
         this.grid = grid;
         this.CurrentCell = currentCell;
+    }
+
+    public void SetMovementValidation(Func<Vector2Int, Vector2Int, bool> func)
+    {
+        isMovementValidFunc = func;
     }
 
     public List<Vector2> CalculateNavigationPoints(Vector2 targetPos)
@@ -92,9 +98,6 @@ public class Navigator
             Vector2Int currentCell = unvisited.Aggregate((left, right) =>
                 knownCells[left].Item1 < knownCells[right].Item1 ? left : right);
             unvisited.Remove(currentCell);
-            // Block currentBlock = world.GetBlock(currentCell);
-            // bool isCurrentBlockClimbable = currentBlock.IsClimbable();
-            // bool isCurrentBlockWalkable = currentBlock.IsWalkable();
             var data = knownCells[currentCell];
 
             // If we have reached the destination, stop and return the results.
@@ -106,21 +109,23 @@ public class Navigator
 
             foreach (Vector2Int neighbourCell in currentCell.GetNeighbouring())
             {
-                // Vector2Int move = neighbourCell - currentCell;
-                
-                // Here we can do any check to see if the neighbouring cell is valid
-                
-                int travelledDistance = data.Item2 + 1;
-                int heuristic = Vector2IntUtils.ManhattanDistance(neighbourCell, targetCell);
-                int f = travelledDistance + heuristic;
+                // Here we can do any check to see if the neighbouring cell is valid to move to
+                bool canMoveTo = isMovementValidFunc == null || isMovementValidFunc(currentCell, neighbourCell);
 
-                if (travelledDistance < maxDistance)
+                if (canMoveTo)
                 {
-                    if (!knownCells.ContainsKey(neighbourCell) 
-                        || (knownCells.ContainsKey(neighbourCell) && f < knownCells[neighbourCell].Item1))
+                    int travelledDistance = data.Item2 + 1;
+                    int heuristic = Vector2IntUtils.ManhattanDistance(neighbourCell, targetCell);
+                    int f = travelledDistance + heuristic;
+                
+                    if (travelledDistance < maxDistance)
                     {
-                        knownCells[neighbourCell] = new Tuple<int, int, int, Vector2Int>(f, travelledDistance, heuristic, currentCell);
-                        unvisited.Add(neighbourCell);
+                        if (!knownCells.ContainsKey(neighbourCell) 
+                            || (knownCells.ContainsKey(neighbourCell) && f < knownCells[neighbourCell].Item1))
+                        {
+                            knownCells[neighbourCell] = new Tuple<int, int, int, Vector2Int>(f, travelledDistance, heuristic, currentCell);
+                            unvisited.Add(neighbourCell);
+                        }
                     }
                 }
             }
