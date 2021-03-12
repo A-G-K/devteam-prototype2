@@ -93,7 +93,7 @@ Animator:
   m_GameObject: {fileID: 1484325177996695675}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3fe6d522ea72e4345a5b870b2aefd953, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3a986448b97fed2f58af64daa8d83f3b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 2014483034993919821}
   - component: {fileID: 5706374439502187136}
   - component: {fileID: 1270207854443570502}
+  - component: {fileID: 3988206805918269570}
   m_Layer: 0
   m_Name: Fire Elemental Unit
   m_TagString: Unit
@@ -192,3 +193,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3988206805918269570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2422165352394204651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f484e5afa9fa4836a623a02e85227562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  footHeightOffset: 0.1
+  movementAnimator: {fileID: 9122310556478535506}

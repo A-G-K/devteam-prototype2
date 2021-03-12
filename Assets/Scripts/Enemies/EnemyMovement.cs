@@ -30,23 +30,11 @@ public class EnemyMovement : MonoBehaviour
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
         unitMover = GetComponent<UnitMover>();
-        SnapToCurrentCell();
     }
 
     public void ResetMovement()
     {
         CurrentMovementPoints = movementPoints;
-    }
-
-    public void SnapToCurrentCell()
-    {
-        InstantlyMoveTo(CurrentCell);
-    }
-
-    public void InstantlyMoveTo(Vector2Int targetCell)
-    {
-        Vector2 finalPos = gridController.Grid.CellToWorld((Vector3Int) targetCell) + gridController.Grid.cellSize / 2f;
-        transform.position = finalPos;
     }
 
     public async Task MoveTo(Vector2Int targetCell)
@@ -77,7 +65,7 @@ public class EnemyMovement : MonoBehaviour
         
         foreach (Vector2Int neighbourCell in CurrentCell.GetNeighbouring())
         {
-            PlayerUnit playerUnit = unitController.GetUnitAt(neighbourCell);
+            PlayerUnit playerUnit = unitController.GetPlayerUnitAt(neighbourCell);
 
             if (playerUnit != null)
             {
@@ -91,11 +79,13 @@ public class EnemyMovement : MonoBehaviour
     private Vector2Int FindClosestCellTowards(Vector2Int targetCell)
     {
         Navigator navigator = new Navigator(gridController.Grid, CurrentCell);
+        navigator.SetMovementValidation((fromCell, toCell) => 
+            toCell == targetCell || unitController.GetUnitAt(toCell) == null);
 
         List<Vector2Int> navigationCells = navigator.CalculateNavigationCells(targetCell);
 
         // Check if there is a valid path
-        if (navigationCells.Count > 0)
+        if (navigationCells.Count > 2)
         {
             return navigationCells.Skip(1).Take(CurrentMovementPoints).Last(c => c != targetCell);
         }

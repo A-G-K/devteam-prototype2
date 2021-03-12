@@ -64,19 +64,19 @@ public class TurnController : MonoBehaviour
     public void ChangeTurn()
     {
         isChangingTurn = true;
-        
+        Turn lastTurn = CurrentTurn;
 
         // UI CHANGES
-        if (CurrentTurn == Turn.Player) 
+        if (CurrentTurn == Turn.Player && !unitController.IsAnyUnitActing) 
         {
             CurrentTurn = Turn.Enemy;
-            
+
             unitController.enabled = false;
              //StartCoroutine(DelayAndChangeTurn()); // for debugging
             _turnManager.ChangeToEnemyTurn();
             EnemyTurn.Raise();
         } 
-        else 
+        else if (CurrentTurn == Turn.Enemy)
         {
             CurrentTurn = Turn.Player;
             
@@ -84,8 +84,8 @@ public class TurnController : MonoBehaviour
 
             roundCounter++;
             NewRound.Raise();
-            foreach (PlayerUnit unit in unitController.allPlayerUnits) 
             
+            foreach (PlayerUnit unit in unitController.allPlayerUnits)
             {
                 unit.NextTurn();
             }
@@ -94,7 +94,15 @@ public class TurnController : MonoBehaviour
             PlayerTurn.Raise();
         }
 
-        Debug.Log($"======>TURN HAS CHANGED TO {CurrentTurn}");
+        if (CurrentTurn != lastTurn)
+        {
+            Debug.Log($"======>TURN HAS CHANGED TO {CurrentTurn}");
+        }
+        else
+        {
+            Debug.Log($"Still waiting on things before we can more to the next turn");
+        }
+        
         isChangingTurn = false;
     }
 
