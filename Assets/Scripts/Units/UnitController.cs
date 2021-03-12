@@ -11,6 +11,7 @@ public class UnitController : MonoBehaviour
     [SerializeField] private int actionCountPerTurn = 0;
     [SerializeField] private GameEvent selectUnitEvent;
     [SerializeField] private GameEvent deselectUnitEvent;
+    [SerializeField] private List<AttackEffect> attackEffectPrefabs;
 
     private PlayerUnit selectedPlayerUnit;
     private GridController gridController;
@@ -253,10 +254,13 @@ public class UnitController : MonoBehaviour
 
                     if (damage > 0)
                     {
-                        damage *= selectedPlayerUnit.playerData.elementType.AttackWithThisElement(target.Element);
+                        Element attackingElement = selectedPlayerUnit.playerData.elementType;
+                        damage *= attackingElement.AttackWithThisElement(target.Element);
                         damage = Mathf.Max(damage, 1);
                         target.Health.TakeDamage((int)damage);
                         
+                        // Play attack animation
+                        CreateAttackEffect(selectedPlayerUnit.CurrentCell, attackingElement);
                         _audioManager.PlaySound(damageSfx);
                         
                     }
@@ -350,4 +354,25 @@ public class UnitController : MonoBehaviour
 
             return false;
         }
+
+    public void CreateAttackEffect(Vector2Int cell, Element element)
+    {
+        AttackEffect attackEffect = null;
+
+        foreach (AttackEffect attackEffectPrefab in attackEffectPrefabs)
+        {
+            if (attackEffectPrefab.Element == element)
+            {
+                attackEffect = Instantiate(attackEffectPrefab);
+            }
+        }
+
+        if (attackEffect == null)
+        {
+            Debug.LogError($"Found unregistered element {element} that has no associate attack effect!");
+            return;
+        }
+         
+        attackEffect.SetAtCell(cell);
+    }
 }

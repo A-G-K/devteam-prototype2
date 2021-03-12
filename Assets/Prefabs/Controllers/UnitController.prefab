@@ -151,6 +151,11 @@ MonoBehaviour:
   actionCountPerTurn: 1
   selectUnitEvent: {fileID: 11400000, guid: f33ee4753b69fce4f9a25dcab3d52301, type: 2}
   deselectUnitEvent: {fileID: 11400000, guid: 2419691424e2865478b478267760b336, type: 2}
+  attackEffectPrefabs:
+  - {fileID: 6273546821972444959, guid: 756336b6058ce5c78aaa7cf1cdcc0be7, type: 3}
+  - {fileID: 4116855557902230151, guid: 533dd12eef05516d9bf0feb61a51866c, type: 3}
+  - {fileID: 7804817659481271611, guid: 69b74a11fae08cf90b84066fb2d0cfdb, type: 3}
+  - {fileID: 7745939904561515982, guid: a7b12db4d74d1d4d89ed8c3cdfef1c29, type: 3}
   allPlayerUnits: []
   damageSfx: {fileID: 8300000, guid: b86399a4ac27cb943b079639dd8431d8, type: 3}
   healSfx: {fileID: 8300000, guid: 4141c70382ce5904d8ee0e2906f254bb, type: 3}
