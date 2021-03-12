@@ -95,7 +95,7 @@ public class UnitController : MonoBehaviour
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D hitCollider = Physics2D.OverlapPoint(mousePosition);
 
-            if (hitCollider != null && hitCollider.CompareTag("Unit"))
+            if (hitCollider != null && (hitCollider.CompareTag("Unit") || hitCollider.CompareTag("Enemy")))
             {
                 IUnit hitUnit = hitCollider.GetComponent<IUnit>();
 
@@ -119,12 +119,14 @@ public class UnitController : MonoBehaviour
 
     private void ClickUnit(IUnit unit)
     {
+
+        Debug.Log("DING DONT BING");
         if (unit is PlayerUnit playerUnit && selectedPlayerUnit == null)
         {
             SelectPlayerUnit(playerUnit);
             _audioManager.PlaySound(selectUnitSfx);
         }
-        else if (abilityController.isAbilitySelected && canCast(abilityController.curSelectedAbility.elementalCost)) // &&hitCollider.CompareTag("Enemy")
+        else if ((unit is PlayerUnit || unit is EnemyUnit) && abilityController.isAbilitySelected && canCast(abilityController.curSelectedAbility.elementalCost)) // &&hitCollider.CompareTag("Enemy")
         {
             AttackSelectedUnit(unit); //  TO ATTACK THE UNIT || change mouse position to the enemy unit that is going to be damaged
         }

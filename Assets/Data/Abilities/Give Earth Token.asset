@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d13a8bd90be4744e83bc47ebe8b37d5, type: 3}
-  m_Name: GiveEarthToken
+  m_Name: Give Earth Token
   m_EditorClassIdentifier: 
   abilityPrefab: {fileID: 8248320580640668930, guid: 984d45c9afb5708419863976d8d51cc4, type: 3}
   Description: +1 Earth Token to ally unit

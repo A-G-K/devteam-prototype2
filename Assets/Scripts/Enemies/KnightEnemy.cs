@@ -29,7 +29,6 @@ public class KnightEnemy : MonoBehaviour, IEnemyBehaviour
         await enemyMovement.MoveTo(enemyMovement.TowardsNearestPlayerUnit());
         IEnumerable<PlayerUnit> nearbyPlayerUnits = enemyMovement.GetNearbyPlayerUnits();
         PlayerUnit anyPlayerPlayerUnit = nearbyPlayerUnits.FirstOrDefault();
-
         // This means the enemy is next to the player unit
         if (anyPlayerPlayerUnit != null)
         {

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d13a8bd90be4744e83bc47ebe8b37d5, type: 3}
-  m_Name: GiveWaterToken
+  m_Name: Give Water Token
   m_EditorClassIdentifier: 
   abilityPrefab: {fileID: 5747576852972587803, guid: 60c23d256a1b7164bb9462bc771e2b79, type: 3}
   Description: +1 Water Token to ally unit

@@ -25,6 +25,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
+--- !u!61 &3142615498974343314
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4481528215687807762}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &4651769410715128495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36,6 +62,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0f91ba0ae46a979d6a3512e2ad2023e4, type: 2}
+    - target: {fileID: 7489259329014750349, guid: f2ea3abe4e9376bd2b5fced5920470ad, type: 3}
+      propertyPath: element
+      value: 
+      objectReference: {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
     - target: {fileID: 9133284140114923965, guid: f2ea3abe4e9376bd2b5fced5920470ad, type: 3}
       propertyPath: m_Name
       value: FireKnightEnemy
@@ -46,11 +76,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9133284140114923967, guid: f2ea3abe4e9376bd2b5fced5920470ad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.31583273
       objectReference: {fileID: 0}
     - target: {fileID: 9133284140114923967, guid: f2ea3abe4e9376bd2b5fced5920470ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.4522429
       objectReference: {fileID: 0}
     - target: {fileID: 9133284140114923967, guid: f2ea3abe4e9376bd2b5fced5920470ad, type: 3}
       propertyPath: m_LocalPosition.z

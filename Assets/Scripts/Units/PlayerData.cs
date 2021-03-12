@@ -16,10 +16,6 @@ public class PlayerData : UnitData
     public List<Element> startingTokens;
     public List<Element> currentTokens;
 
-      public void AddToken(Element element) 
-    {
-        currentTokens.Add(element);
-    }
-
+    
     
 }

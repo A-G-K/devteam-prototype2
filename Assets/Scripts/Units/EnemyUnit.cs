@@ -18,6 +18,7 @@ public class EnemyUnit : MonoBehaviour, IUnit
     private void Awake()
     {
         Health = GetComponent<Health>();
+        Health.MaxHealth = 10;
     }
 
     private void Start()

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d13a8bd90be4744e83bc47ebe8b37d5, type: 3}
-  m_Name: GiveFireToken
+  m_Name: Give Fire Token
   m_EditorClassIdentifier: 
   abilityPrefab: {fileID: 8064450745429529471, guid: 8f241d641b11e824da473be53da75f9e, type: 3}
   Description: +1 Fire Token to ally unit
