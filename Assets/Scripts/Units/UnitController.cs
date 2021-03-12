@@ -62,6 +62,11 @@ public class UnitController : MonoBehaviour
         HandleClick();
     }
 
+    public List<PlayerUnit> GetPlayerUnits() 
+    {
+        return allPlayerUnits;
+    }
+
     /// <summary>
     /// Get any unit given a position in the world, returns null otherwise if no unit is found.
     /// </summary>

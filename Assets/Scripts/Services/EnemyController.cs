@@ -21,7 +21,12 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy")
+        SetAllEnemies();
+    }
+
+    public void SetAllEnemies() 
+    {
+               enemies = GameObject.FindGameObjectsWithTag("Enemy")
             .Select(e => e.GetComponent<IEnemyBehaviour>())
             .Where(e => e != null)
             .ToList();

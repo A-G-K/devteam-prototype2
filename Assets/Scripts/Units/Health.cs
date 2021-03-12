@@ -23,6 +23,11 @@ public class Health : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
+    public void Death() 
+    {
+        Destroy(this.gameObject);
+    }
+
     public void TakeDamage(int amount)
     {
         CurrentHealth = Mathf.Max(CurrentHealth - amount, 0);

@@ -22,11 +22,17 @@ public class TurnController : MonoBehaviour
 
     [SerializeField] private GameEvent PlayerTurn;
 
+        [SerializeField] private GameEvent LoseGame;
+        [SerializeField] private GameEvent WinGame;
+
+
     public Turn CurrentTurn {get; set;}
 
     public int roundCounter;
 
     private UnitController unitController;
+
+    private EnemyController enemyController;
     private bool isChangingTurn;
 
     private TurnManager _turnManager;
@@ -59,13 +65,22 @@ public class TurnController : MonoBehaviour
     {
         unitController = ServiceLocator.Current.Get<UnitManager>().Controller;
         _turnManager = ServiceLocator.Current.Get<TurnManager>();
+        enemyController = ServiceLocator.Current.Get<EnemyManager>().Controller;
+    }
+
+    void Update() 
+    {
+        if (unitController.GetPlayerUnits() == null) 
+        {
+            LoseGame.Raise();
+        }
     }
 
     public void ChangeTurn()
     {
         isChangingTurn = true;
         Turn lastTurn = CurrentTurn;
-
+        enemyController.SetAllEnemies();
         // UI CHANGES
         if (CurrentTurn == Turn.Player && !unitController.IsAnyUnitActing) 
         {
