@@ -18,13 +18,14 @@ MonoBehaviour:
   unit_Colour:
     serializedVersion: 2
     rgba: 4294967295
-  unit_MaxHealth: 1
+  unit_MaxHealth: 4
   elementType: {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
   abilitiesList:
+  - {fileID: 11400000, guid: c8fa421a03cfd3c4ca4fad5eac1e07b6, type: 2}
   - {fileID: 11400000, guid: d9456281c03effa458578dc68d9fd2f7, type: 2}
   - {fileID: 11400000, guid: 65004989ccf171541af594a3da115fc6, type: 2}
   - {fileID: 11400000, guid: 4114dade5e1c90f45b725ccebef6b881, type: 2}
-  unit_MovementPoints: 5
+  unit_MovementPoints: 3
   unit_StartElementalToken: 3
   startingTokens: []
   currentTokens:

@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Baby Don't Hurt Me.unity
+    guid: 8b4be7c53372a09428a7137ad9edbde1
+  - enabled: 0
     path: Assets/Scenes/TestScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UI Text.unity
     guid: 316628799dd32d34abad6d340438fda4
   m_configObjects: {}
