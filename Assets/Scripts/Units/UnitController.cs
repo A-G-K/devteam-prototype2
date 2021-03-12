@@ -67,6 +67,17 @@ public class UnitController : MonoBehaviour
         return allPlayerUnits;
     }
 
+     public void SetPlayerUnits() 
+    {
+        GameObject[] tempUnits;
+        tempUnits = GameObject.FindGameObjectsWithTag("Unit");
+
+        foreach (GameObject unit in tempUnits)
+        {
+            allPlayerUnits.Add(unit.gameObject.GetComponent<PlayerUnit>());
+        }
+    }
+
     /// <summary>
     /// Get any unit given a position in the world, returns null otherwise if no unit is found.
     /// </summary>

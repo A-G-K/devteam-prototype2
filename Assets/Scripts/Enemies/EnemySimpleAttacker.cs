@@ -26,5 +26,6 @@ public class EnemySimpleAttacker : MonoBehaviour
 
         Health unitHealth = playerUnit.GetComponent<Health>();
         unitHealth.TakeDamage(attackDamage);
+        //unitController.SetPlayerUnits();
     }
 }
