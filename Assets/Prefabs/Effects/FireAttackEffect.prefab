@@ -7,10 +7,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 603331036193404271, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
+      propertyPath: element
+      value: 
+      objectReference: {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+    - target: {fileID: 1147761388876613917, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
+      propertyPath: m_Size.x
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147761388876613917, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
+      propertyPath: m_Size.y
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1147761388876613917, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4860046162862469476, guid: 53a840a46889eaea5a6c974e95d76661, type: 3}
+    - target: {fileID: 1147761388876613917, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5124020690750044179, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
       propertyPath: m_Name
-      value: AttackEffect
+      value: FireAttackEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 5535581096839506076, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 980018ffaa902ad76bce7c78dd080506, type: 2}
     - target: {fileID: 8538827843977948365, guid: 3b7bc43a170ecc82f8e363e0e9f6c1c2, type: 3}
       propertyPath: m_RootOrder
       value: 0

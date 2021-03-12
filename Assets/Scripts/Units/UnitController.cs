@@ -262,7 +262,7 @@ public class UnitController : MonoBehaviour
                         target.Health.TakeDamage((int)damage);
                         
                         // Play attack animation
-                        CreateAttackEffect(selectedPlayerUnit.CurrentCell, attackingElement);
+                        CreateAttackEffect(targetCellPos, attackingElement);
                         _audioManager.PlaySound(damageSfx);
                         
                     }

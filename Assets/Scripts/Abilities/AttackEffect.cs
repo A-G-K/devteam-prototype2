@@ -10,9 +10,10 @@ public class AttackEffect : MonoBehaviour
     private GridController gridController;
     private Grid Grid => gridController.Grid;
     public Element Element => element;
-
-    private void Start()
+    
+    private void Awake()
     {
+        // This object is expected to be instantiated, we can get away with doing this in terms of script order execution
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
     }
 
@@ -23,6 +24,11 @@ public class AttackEffect : MonoBehaviour
 
     private void Update()
     {
-        // TODO destroy the gameobject when animator is done somehow?
+        var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        if (stateInfo.normalizedTime > stateInfo.length)
+        {
+            Destroy(gameObject);
+        }
     }
 }
