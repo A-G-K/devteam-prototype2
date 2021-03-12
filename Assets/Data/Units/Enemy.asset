@@ -18,6 +18,7 @@ MonoBehaviour:
   unit_Colour:
     serializedVersion: 2
     rgba: 4278255538
-  unit_MaxHealth: 60
+  unit_MaxHealth: 1
   elementType: {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
+  abilitiesList: []
   EnemyDamage: 50

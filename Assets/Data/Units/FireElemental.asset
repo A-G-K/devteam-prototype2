@@ -18,7 +18,7 @@ MonoBehaviour:
   unit_Colour:
     serializedVersion: 2
     rgba: 4278190335
-  unit_MaxHealth: 50
+  unit_MaxHealth: 1
   elementType: {fileID: 11400000, guid: f780587528fe10d40addad1ae2cda7bf, type: 2}
   abilitiesList:
   - {fileID: 11400000, guid: 176431ae4c1ca074daac7dbd08c7dab5, type: 2}

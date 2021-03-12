@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &4320084 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+  m_PrefabInstance: {fileID: 4066954814754668465}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2124fb24375040a2bcf54df6413b1242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &45780862
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,10 +444,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &829337343 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+  m_PrefabInstance: {fileID: 392470055526370555}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2124fb24375040a2bcf54df6413b1242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &832673370 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7833489448836389859, guid: 34d97148ddb9c0a669fa717756e9bb75, type: 3}
   m_PrefabInstance: {fileID: 1315566177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2124fb24375040a2bcf54df6413b1242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &856762528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+  m_PrefabInstance: {fileID: 6243468117996066116}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -909,6 +942,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64397f2264ea7166d8ba0045920c5b6c, type: 3}
+--- !u!114 &1736090112 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+  m_PrefabInstance: {fileID: 1633197589549198875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2124fb24375040a2bcf54df6413b1242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1740483560 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9091699866894464880, guid: 809a9902c50ef0f42b176b38afffdd92, type: 3}
@@ -1412,6 +1456,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire Elemental Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 829337343}
+    - target: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706374439502187136, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c24f91b2b90bbfe4b8620e01882a1c73, type: 3}
 --- !u!1001 &1633197589549198875
@@ -1421,6 +1493,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1736090112}
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1633197587689853317, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1633197587689853318, guid: d50fc9d6e343ee24187854ff101dd0f7, type: 3}
       propertyPath: m_Name
       value: Air Elemental Unit
@@ -1539,6 +1639,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4320084}
+    - target: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 891421642442062134, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2007013844664509026, guid: ba41f4844b3c67b4c99172410b87bc32, type: 3}
       propertyPath: m_Name
       value: Water Elemental Unit
@@ -1643,6 +1771,34 @@ PrefabInstance:
     - target: {fileID: 1469175425764594775, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
       propertyPath: m_Name
       value: Earth Elemental Unit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 856762528}
+    - target: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8192534139821980495, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22a2fc5c13adb643b4ea3166630e7be, type: 3}
