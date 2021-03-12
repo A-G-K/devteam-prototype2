@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemySimpleAttacker : MonoBehaviour
 {
     [SerializeField] private int attackDamage;
+    [SerializeField] private Element attackingElement;
     
     private UnitController unitController;
     private GridController gridController;
@@ -18,11 +19,12 @@ public class EnemySimpleAttacker : MonoBehaviour
         gridController = ServiceLocator.Current.Get<GridManager>().Controller;
     }
 
-    public void AttackPlayer(PlayerUnit playerPlayerUnit)
+    public void AttackPlayer(PlayerUnit playerUnit)
     {
-        // TODO sprite attack animation, sounds or whatever
+        // Attack animation
+        unitController.CreateAttackEffect(playerUnit.CurrentCell, attackingElement);
 
-        Health unitHealth = playerPlayerUnit.GetComponent<Health>();
+        Health unitHealth = playerUnit.GetComponent<Health>();
         unitHealth.TakeDamage(attackDamage);
     }
 }

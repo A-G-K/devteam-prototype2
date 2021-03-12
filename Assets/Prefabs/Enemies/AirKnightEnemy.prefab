@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 1
+  attackingElement: {fileID: 11400000, guid: e5f12b9334236184f94784d463a9414f, type: 2}
 --- !u!114 &7509673315256940966
 MonoBehaviour:
   m_ObjectHideFlags: 0
